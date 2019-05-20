@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thay\\project\\bai1\\bai1\\bai1.csproj",
+      "projectUniqueName": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thayTien\\PRN292Store\\project\\bai1\\bai1\\bai1.csproj",
       "projectName": "bai1",
-      "projectPath": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thay\\project\\bai1\\bai1\\bai1.csproj",
+      "projectPath": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thayTien\\PRN292Store\\project\\bai1\\bai1\\bai1.csproj",
       "packagesPath": "C:\\Users\\CuongNX\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thay\\project\\bai1\\bai1\\obj\\",
+      "outputPath": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thayTien\\PRN292Store\\project\\bai1\\bai1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

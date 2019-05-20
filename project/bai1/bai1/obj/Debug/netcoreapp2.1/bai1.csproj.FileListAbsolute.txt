@@ -9,3 +9,14 @@ D:\Study\Specialization\Specialization_5\PRN292\thay\project\bai1\bai1\obj\Debug
 D:\Study\Specialization\Specialization_5\PRN292\thay\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.AssemblyInfo.cs
 D:\Study\Specialization\Specialization_5\PRN292\thay\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.dll
 D:\Study\Specialization\Specialization_5\PRN292\thay\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.pdb
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\bin\Debug\netcoreapp2.1\bai1.deps.json
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\bin\Debug\netcoreapp2.1\bai1.runtimeconfig.json
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\bin\Debug\netcoreapp2.1\bai1.runtimeconfig.dev.json
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\bin\Debug\netcoreapp2.1\bai1.dll
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\bin\Debug\netcoreapp2.1\bai1.pdb
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.csprojAssemblyReference.cache
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.csproj.CoreCompileInputs.cache
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.AssemblyInfoInputs.cache
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.AssemblyInfo.cs
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.dll
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292Store\project\bai1\bai1\obj\Debug\netcoreapp2.1\bai1.pdb

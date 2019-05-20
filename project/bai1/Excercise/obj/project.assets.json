@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thay\\project\\bai1\\Excercise\\Excercise.csproj",
+      "projectUniqueName": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thayTien\\PRN292Store\\project\\bai1\\Excercise\\Excercise.csproj",
       "projectName": "Excercise",
-      "projectPath": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thay\\project\\bai1\\Excercise\\Excercise.csproj",
+      "projectPath": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thayTien\\PRN292Store\\project\\bai1\\Excercise\\Excercise.csproj",
       "packagesPath": "C:\\Users\\CuongNX\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thay\\project\\bai1\\Excercise\\obj\\",
+      "outputPath": "D:\\Study\\Specialization\\Specialization_5\\PRN292\\thayTien\\PRN292Store\\project\\bai1\\Excercise\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

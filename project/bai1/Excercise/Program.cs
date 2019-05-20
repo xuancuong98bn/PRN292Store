@@ -6,7 +6,7 @@ namespace Excercise
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MyFunc myFunc = new MyFunc();
         }
     }
 }

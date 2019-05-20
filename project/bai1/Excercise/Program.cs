@@ -6,7 +6,9 @@ namespace Excercise
     {
         static void Main(string[] args)
         {
-            MyFunc myFunc = new MyFunc();
+            //MyFunc myFunc = new MyFunc();
+            //MyArray myArray = new MyArray();
+            MyString myString = new MyString();
         }
     }
 }

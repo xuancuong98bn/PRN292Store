@@ -17,11 +17,12 @@ namespace Excercise
             //CalSumOfFactor();
             //FindGCD(arr);
             //FindLCM(arr);
-            int n = Input(0, 10);
-            Console.WriteLine("S = " + SumOfEquation(n));
-            DisplayIsoscelesTriangle(n);
-            Console.WriteLine("Number of prime in ({0},{1}) is {2}", 20, 60, CountPrime2Digit(20, 60));
-            Console.WriteLine("Sum of odd square from 1 to {0} is {1}", n, SumOddSquareTo(n));
+
+            //int n = Input(0, 10);
+            //Console.WriteLine("S = " + SumOfEquation(n));
+            //DisplayIsoscelesTriangle(n);
+            //Console.WriteLine("Number of prime in ({0},{1}) is {2}", 20, 60, CountPrime2Digit(20, 60));
+            //Console.WriteLine("Sum of odd square from 1 to {0} is {1}", n, SumOddSquareTo(n));
         }
 
         /*Function Excercise paragraph 5*/
@@ -45,8 +46,14 @@ namespace Excercise
         //- Kiểm tra một số nguyên có phải là số chính phương. (trả về 1 nếu là đúng,0 là sai).
         public int IsSquare(int n)
         {
-            double d = Math.Sqrt(n);
-            return d % 1 == 0 ? 1 : 0;
+            if (n > 0)
+            {
+                double d = Math.Sqrt(n);
+                return d % 1 == 0 ? 1 : 0;
+            } else
+            {
+                return 0;
+            }
         }
 
         //- Tìm ước chung lớn nhất của 2 số nguyên. (trả về)

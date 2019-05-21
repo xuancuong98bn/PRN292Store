@@ -44,8 +44,8 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCalc = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblFillCost = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblFillCost = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numFilling)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -206,15 +206,6 @@
             this.panel1.Size = new System.Drawing.Size(319, 352);
             this.panel1.TabIndex = 15;
             // 
-            // lblFillCost
-            // 
-            this.lblFillCost.AutoSize = true;
-            this.lblFillCost.Location = new System.Drawing.Point(197, 123);
-            this.lblFillCost.Name = "lblFillCost";
-            this.lblFillCost.Size = new System.Drawing.Size(65, 13);
-            this.lblFillCost.TabIndex = 15;
-            this.lblFillCost.Text = "$80.000/cái";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lblWhiteningCost);
@@ -231,6 +222,15 @@
             this.panel2.Size = new System.Drawing.Size(278, 153);
             this.panel2.TabIndex = 16;
             // 
+            // lblFillCost
+            // 
+            this.lblFillCost.AutoSize = true;
+            this.lblFillCost.Location = new System.Drawing.Point(197, 123);
+            this.lblFillCost.Name = "lblFillCost";
+            this.lblFillCost.Size = new System.Drawing.Size(65, 13);
+            this.lblFillCost.TabIndex = 15;
+            this.lblFillCost.Text = "$80.000/cái";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,7 +238,7 @@
             this.ClientSize = new System.Drawing.Size(343, 375);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Dental Payment Application";
             ((System.ComponentModel.ISupportInitialize)(this.numFilling)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

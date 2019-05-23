@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1_DentalPayment", "Lab1_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1_SecurityPanel", "Lab1_SecurityPanel\Lab1_SecurityPanel.csproj", "{0DD57D2C-3219-438C-81AA-C5B72ACDFB3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1_Employee", "Lab1_Employee\Lab1_Employee.csproj", "{63EBCD48-DF34-401E-A8DE-CBADDCA7FBCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0DD57D2C-3219-438C-81AA-C5B72ACDFB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DD57D2C-3219-438C-81AA-C5B72ACDFB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DD57D2C-3219-438C-81AA-C5B72ACDFB3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63EBCD48-DF34-401E-A8DE-CBADDCA7FBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63EBCD48-DF34-401E-A8DE-CBADDCA7FBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63EBCD48-DF34-401E-A8DE-CBADDCA7FBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63EBCD48-DF34-401E-A8DE-CBADDCA7FBCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

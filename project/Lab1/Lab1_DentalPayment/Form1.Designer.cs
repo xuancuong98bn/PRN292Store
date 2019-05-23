@@ -164,9 +164,9 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(186, 262);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
             this.txtTotal.TabIndex = 12;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

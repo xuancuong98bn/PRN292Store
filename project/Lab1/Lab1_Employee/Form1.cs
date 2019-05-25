@@ -146,10 +146,11 @@ namespace Lab1_Employee
         {
             return code + "\t" + name + "\t" + gender + "\t" + role + "\t" + salary;
         }
+
         /*
-         add chức vụ: giám đóc, kế toán, nhân viên, bảo vệ;
-         10tr, 8,6,4
-         OK - Check input
-         */
+add chức vụ: giám đóc, kế toán, nhân viên, bảo vệ;
+10tr, 8,6,4
+OK - Check input
+*/
     }
 }

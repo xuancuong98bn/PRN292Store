@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Lab1_FormAdvanced
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -95,7 +95,7 @@ namespace Lab1_FormAdvanced
             {
                 if ("Admin".Equals(txtUsername.Text) && "123456".Equals(txtPassword.Text))
                 {
-
+                    //open caculator
                 }
             }
         }

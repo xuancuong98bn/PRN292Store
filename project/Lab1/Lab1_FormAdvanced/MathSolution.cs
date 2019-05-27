@@ -163,5 +163,10 @@ namespace Lab1_FormAdvanced
         {
             Application.OpenForms[0].Show();
         }
+
+        private void radGCD_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -159,6 +159,7 @@
             this.radGCD.TabIndex = 1;
             this.radGCD.Text = "Ước chung lớn nhất";
             this.radGCD.UseVisualStyleBackColor = true;
+            this.radGCD.CheckedChanged += new System.EventHandler(this.radGCD_CheckedChanged);
             // 
             // radLinear
             // 

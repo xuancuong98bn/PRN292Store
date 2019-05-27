@@ -8,6 +8,7 @@ using System.Text;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Threading;
+using System.Reflection;
 
 namespace Lab1_FormAdvanced
 {
@@ -156,6 +157,19 @@ namespace Lab1_FormAdvanced
         private void radEn_CheckedChanged(object sender, EventArgs e)
         {
             SetupInternalizationByFile("en");
+        }
+
+        private void getRes(CultureInfo ci)
+        {
+            //Assembly a = Assembly.Load("Lab1_FormAdvanced");
+            //ResourceManager rm = new ResourceManager("login.Lang.langres", a);
+            //lbLogin.Text = rm.GetString("lbLogin", ci);
+            //lbName.Text = rm.GetString("lbName", ci);
+            //lbPass.Text = rm.GetString("lbPass", ci);
+            //lbForget.Text = rm.GetString("lbForget", ci);
+            //btnExit.Text = rm.GetString("btnExit", ci);
+            //btnLogin.Text = rm.GetString("btnLogin", ci);
+            //btnReset.Text = rm.GetString("btnReset", ci);
         }
     }
 }

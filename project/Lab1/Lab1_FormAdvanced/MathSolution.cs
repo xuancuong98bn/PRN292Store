@@ -9,41 +9,32 @@ using System.Windows.Forms;
 
 namespace Lab1_FormAdvanced
 {
-    public partial class Caculator : Form
+    public partial class MathSolution : Form
     {
-        public Caculator()
+        public MathSolution()
         {
             InitializeComponent();
         }
 
         private void Caculate()
         {
-            float a, b, result = 0;
-            if (CheckNumber(txtA, lblA, out a) && CheckNumber(txtB, lblB, out b) && CheckEmpty(cmbOperator, lblOperator))
+            float a, b;
+            string result = "";
+            if (CheckNumber(txtA, lblA, out a) && CheckNumber(txtB, lblB, out b))
             {
-                switch (cmbOperator.Text)
+                if (radLinear.Checked)
                 {
-                    case "+":
-                        result = Sum(a, b);
-                        break;
-                    case "-":
-                        result = Sub(a, b);
-                        break;
-                    case "*":
-                        result = Mul(a, b);
-                        break;
-                    case "/":
-                        if (b == 0)
-                        {
-                            MessageBox.Show("Không thể chia cho 0", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            result = Div(a, b);
-                        }
-                        break;
+                    result = LinearEquation(a, b);
                 }
-                txtResult.Text = result.ToString();
+                if (radGCD.Checked)
+                {
+                    result = "Greatest Common Divisor = " + GCD((int)a, (int)b);
+                }
+                if (radLCM.Checked)
+                {
+                    result = "Least Common Denominato = " + LCM((int)a, (int)b);
+                }
+                lblResult.Text = result;
             }
         }
 
@@ -73,24 +64,32 @@ namespace Lab1_FormAdvanced
             return false;
         }
 
-        private float Sum(float a, float b)
+        private string LinearEquation(float a, float b)
         {
-            return a + b;
+            if (a == 0)
+            {
+                if (b == 0)
+                {
+                    return "Phương trình vô số nghiệm";
+                } else
+                {
+                    return "Phương trình vô nghiệm";
+                }
+            }
+            return "x = " + b/a;
         }
 
-        private float Sub(float a, float b)
+        //- Tìm ước chung lớn nhất của 2 số nguyên. (trả về)
+        public int GCD(int a, int b)
         {
-            return a - b;
+            if (b == 0) return a;
+            return GCD(b, a % b);
         }
 
-        private float Mul(float a, float b)
+        //- Tìm bội chung nhỏ nhất của 2 số nguyên. (trả về)
+        public int LCM(int a, int b)
         {
-            return a * b;
-        }
-
-        private float Div(float a, float b)
-        {
-            return a / b;
+            return a * b / GCD(a, b);
         }
 
         private void txtA_Enter(object sender, EventArgs e)
@@ -141,8 +140,7 @@ namespace Lab1_FormAdvanced
         {
             txtA.Text = "";
             txtB.Text = "";
-            cmbOperator.Text = "";
-            txtResult.Text = "";
+            lblResult.Text = "";
         }
 
         private void btnExecute_Click(object sender, EventArgs e)
@@ -155,9 +153,9 @@ namespace Lab1_FormAdvanced
             DialogResult result = MessageBox.Show("Bạn có muốn đến với bài tiếp theo không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                MathSolution mathSolution = new MathSolution();
+                MyRandom myRandom = new MyRandom();
                 this.Hide();
-                mathSolution.Show();
+                myRandom.Show();
             }
         }
     }

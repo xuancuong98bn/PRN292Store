@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MathSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MathSolution.Designer.cs">
+      <DependentUpon>MathSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caculator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,13 +61,25 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyRandom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyRandom.Designer.cs">
+      <DependentUpon>MyRandom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MathSolution.resx">
+      <DependentUpon>MathSolution.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Caculator.resx">
       <DependentUpon>Caculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyRandom.resx">
+      <DependentUpon>MyRandom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

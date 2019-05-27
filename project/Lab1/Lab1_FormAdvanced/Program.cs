@@ -15,7 +15,7 @@ namespace Lab1_FormAdvanced
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Caculator());
+            Application.Run(new Login());
         }
     }
 }

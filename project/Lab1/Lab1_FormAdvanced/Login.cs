@@ -71,7 +71,7 @@ namespace Lab1_FormAdvanced
             DialogResult result = MessageBox.Show("Bạn có muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                Close();
+                Application.Exit();
             }
         }
 
@@ -95,7 +95,12 @@ namespace Lab1_FormAdvanced
             {
                 if ("Admin".Equals(txtUsername.Text) && "123456".Equals(txtPassword.Text))
                 {
-                    //open caculator
+                    Caculator caculator = new Caculator();
+                    this.Hide();
+                    caculator.Show();
+                } else
+                {
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

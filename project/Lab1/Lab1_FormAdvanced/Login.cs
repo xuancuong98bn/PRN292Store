@@ -104,5 +104,10 @@ namespace Lab1_FormAdvanced
                 }
             }
         }
+
+        private void lblForgot_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Quên thì thôi, tự tìm đi!", "Gợi ý", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }

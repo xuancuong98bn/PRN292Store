@@ -28,7 +28,7 @@ namespace Lab1_FormAdvanced
             {
                 if (dic.Count > 0)
                 {
-                    int value = random.Next(1, max);
+                    int value = random.Next(min, max);
                     if (dic.ContainsKey(value))
                     {
                         lblResult.Text = value.ToString();

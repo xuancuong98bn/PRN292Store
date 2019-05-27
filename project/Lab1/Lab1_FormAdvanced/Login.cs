@@ -5,15 +5,53 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Lab1_FormAdvanced
 {
     public partial class Login : Form
     {
-        public Login()
+        public Login() 
         {
             InitializeComponent();
+        }
+
+        private void SetupInternalization(string language = "vi-VN")
+        {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(language);
+            lblTitle.Text = Resource.lbl_title;
+            lblUsername.Text = Resource.lbl_username;
+            lblPassword.Text = Resource.lbl_password;
+            btnLogin.Text = Resource.btn_login;
+            btnNew.Text = Resource.btn_new;
+            btnExit.Text = Resource.btn_exit;
+            lblForgot.Text = Resource.lbl_Forgot;
+        }
+
+        private void SetupInternalizationByFile(string language = "vi")
+        {
+            if (language == "en")
+            {
+                lblTitle.Text = Resource.lbl_title;
+                lblUsername.Text = Resource.lbl_username;
+                lblPassword.Text = Resource.lbl_password;
+                btnLogin.Text = Resource.btn_login;
+                btnNew.Text = Resource.btn_new;
+                btnExit.Text = Resource.btn_exit;
+                lblForgot.Text = Resource.lbl_Forgot;
+            }
+            else if (language == "vi")
+            {
+                lblTitle.Text = Resource_vi.lbl_title;
+                lblUsername.Text = Resource_vi.lbl_username;
+                lblPassword.Text = Resource_vi.lbl_password;
+                btnLogin.Text = Resource_vi.btn_login;
+                btnNew.Text = Resource_vi.btn_new;
+                btnExit.Text = Resource_vi.btn_exit;
+                lblForgot.Text = Resource_vi.lbl_Forgot;
+            }
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -71,7 +109,7 @@ namespace Lab1_FormAdvanced
             DialogResult result = MessageBox.Show("Bạn có muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                Application.Exit();
+                Application.ExitThread();
             }
         }
 
@@ -108,6 +146,16 @@ namespace Lab1_FormAdvanced
         private void lblForgot_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Quên thì thôi, tự tìm đi!", "Gợi ý", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void radVi_CheckedChanged(object sender, EventArgs e)
+        {
+            SetupInternalizationByFile("vi");
+        }
+
+        private void radEn_CheckedChanged(object sender, EventArgs e)
+        {
+            SetupInternalizationByFile("en");
         }
     }
 }

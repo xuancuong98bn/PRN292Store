@@ -82,9 +82,10 @@
             this.lblTitle.ForeColor = System.Drawing.Color.Red;
             this.lblTitle.Location = new System.Drawing.Point(129, 43);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(138, 25);
+            this.lblTitle.Size = new System.Drawing.Size(133, 29);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "ĐĂNG NHẬP";
+            this.lblTitle.UseCompatibleTextRendering = true;
             // 
             // panel4
             // 
@@ -225,6 +226,7 @@
             this.radEn.TabIndex = 1;
             this.radEn.Text = "Anh";
             this.radEn.UseVisualStyleBackColor = true;
+            this.radEn.CheckedChanged += new System.EventHandler(this.radEn_CheckedChanged);
             // 
             // radVi
             // 
@@ -237,6 +239,7 @@
             this.radVi.TabStop = true;
             this.radVi.Text = "Việt";
             this.radVi.UseVisualStyleBackColor = true;
+            this.radVi.CheckedChanged += new System.EventHandler(this.radVi_CheckedChanged);
             // 
             // Login
             // 

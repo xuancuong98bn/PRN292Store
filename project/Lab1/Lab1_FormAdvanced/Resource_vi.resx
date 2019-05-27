@@ -117,60 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnNext.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6
-        JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3UlE
-        QVQ4T2P4//8/RRirICkYL2BnYLAHUkYQHhlAgJEhKtfV7DkHA4M3VIhkoHZgXvH/fdPS/qjysHUB+ZwQ
-        YUzAzcTAYM7GwOAAZOsCsSAQKwLFwpZ2lX0G+vX/29s7/qd7WR1hZmDwAGlABto5njbnN7TH/j6+rPbf
-        vvlVPxbWxr6oyYy419rQ9nd2Wei//3+uA414CsTn/u+bXfzPVV1mMSMDgwVQLweDr4r4pl935vz///f4
-        //9fdv3//+sQUOG1/0/vbvt/9ODR/ysaEv//eb7q//dHq/7/erjy///f+////7Dkf3+i0x8BBoZ0hnpf
-        gycfz1T8f3209P+Xyy3/f93p+f//5az/D89M+j99yrT/cwpD/n+62vH/651p/79fa/v/eHPs/+oQo4f8
-        zAwxQBfwMoSqil88O8ny/9VZ1v/3N5v8X5St/7/BX/FlpKXC6fSUzP8NwYZ/765w+f98s9f/fa2m/62l
-        udYCNaqC/A4GvAwM8d4ygnfMhLn2SDMzdgH9FgAUlgJiYR4ugeIUU6Fr9+ep/l+YIvtPgpmhFSjOAtKH
-        DviBGBjomCDXWujm7FiJXzwMDDlQIZIAn5eM8FVgQoqG8kkGQIsZrCFMHAAYZxRhrILE4/8MAEwQgr9A
-        siXCAAAAAElFTkSuQmCC
-</value>
+  <data name="btn_exit" xml:space="preserve">
+    <value>THOÁT</value>
   </data>
-  <data name="btnReset.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAy1JREFUOE9jwAYs0hdIW2as0DFPX6pqmL1MCipMGGR3HpFqWXRq8/ztN14u3nfr
-        3/ydN/9O33LtUfWc4zuCGrf5QpUxuNRs0XQq3uQJ5UJAVP1upRkbrz3ec+nF/53nn//feubp/40nn/xf
-        d/zx/9XHHv2fv+fun7JZx/Z4F683zpl+9EZY89ZEqFYgqK9naltyav26Yw+/VM46/iCta+ft/MkHT/Wv
-        v3hkwZ47X1Ycfvh/2vbb/1vXXPtfufDs96rF5//Hd+xJhupmYNBJni3eteLCLe+y9R+9y7aet8haqaIV
-        uorNKmkOr3vJOsucSYcX1S87+6Vq6aX/ZYsu/K9YdP5/YsdehAu0UxcoBzVuuZ09+fgMn8othSq5E9mh
-        UmCgkruNPaP/0MrGFVf+Fy84/x/kguTu/QgDTDIWq3uUb+jMnXhOlCF0FTMDw39GkLeg0gxRbTvb65dc
-        /FO95Pz/SqDmWiDtX7clFirNwKCVtYonvHnnwtzJh7dkTT60JR1IhzXvWGmWu1jGPn4+h1fVFu/4zr2x
-        IJzYtTvOv2p9llX2MhOodgYGw6RlUtM3XX8+d++9/3P23Ps/a9uN35Etu3Kg0nCw7tBdtQ1HrvOapa70
-        tstbUwwVhhgweeOVZzN23vk/Y9ed/52rLj3wrljvZVG4khOqBAz6Nt+NPnD5TZx37baltiXrC6DCkJQ3
-        ccOl57OAmqftuP2/b9PN/znTTn4Kad25xrNwabBJ4gJPx5qdjfXLLt2I6jpwwaN252vbnJVmUO0MDGYp
-        s2SALnjZuPjE9aYV5z4WAUM6fcaZ/xkzz/xPnHT8f0THwfdBrbtfBzbteRfac/S/a+XW3ep+nbxQ7QyM
-        am45GqldO87JmQU6qTsmRwVVrziWPPHIr5Rpp/4nTT31P27Syf9RE47/D+068t+1fOM1ZYtoI6A+fiCG
-        xJSMRZy0qn28AZCpCsQGDBwc9gpWEbl2KZPXOxcsPeNetvy8ffaSo2bxE3r55XRBmqWBmA+I4VENAhxA
-        LATEIEklINYAYm0GBlYdLlFVkOHKQCwDxCJAzAXEeAHIZBYgZoNiVqgYGmBgAACuonML3ZSmxwAAAABJ
-        RU5ErkJggg==
-</value>
+  <data name="btn_login" xml:space="preserve">
+    <value>ĐĂNG NHẬP</value>
   </data>
-  <data name="btnExecute.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAA0RJREFUOE9t
-        U29M01cU/UEHFrNJNIhRxgaLwhfUZNFETKYJ44OJmoy4CMiMf8bUmBH5oKCRGUMyXSAlYdHWYFuUVd1Y
-        sSMi0lpKA1iNK8TS2q4FSv8xSihQMgKhwDu7r2kkEU9yPry8e27uO+c+4UMoLy/P7Onpkba2tt6Mi4uL
-        VyqVRXK5/HBOTk5SrGQ1RCKRUFdXt7+iomJHfX190fj4OHw+36zRaLw/ODg4PTIyslxTU5MXK18NiUSS
-        Hw6HZycmJsKhUGhucnISvMno6ChvBI/Hwzo6Om61t7dLZDLZkZhsBSUlJVnU4L+FhQVMhEJModax0up7
-        4JQ3a+F2u+H1ejE0NASbzTaenJycEhXSG0UtLS3VJpNJPT8/zzz+Ufb1j1K2vlDJNp9WY+PJZnzy7V3k
-        ld2Bze6MNtHpdE1cGm1QXFz8hd/vn52amsL09DQ7Vf3b8q6LT6HoGIDV5cGNFivyqruRdV6DM7/8EX2S
-        w+EIaLVaWWFh4WYhNzd3Hb1LGgwGYXW4llKPKdlPqr8RCAQw4g/iyoMBHJG8wvaLenx24j5cbi/Gxsb4
-        PSOzDwmJiYlJCoXiEjdK8/zlkvjoAzx9YYP1Hzd2X9YjpbQNScf/QnzRY3xaqobhtR1kMuvq6vqT4t4q
-        kKPHnE4n4+b0vB5YFH2jZC8tLtxusyL1hxXxhtNPsOG7h7APB0Bmo7a29jg5EC+UlZV9SUvjI2cjw8PD
-        bOfZe4u/G97i1ydWpHzfhrRz7ci6oEV2uQ77LqmxEIlgbm4O5NtMQUHBNu4jdzNJo9E0UxPoXliWD15V
-        M6cniK+uGZF+/hm2nG3D56dUMDt8iEQijCL19/b2GhMSEtbwBkJaWlpqd3f3v/39/TxjmPrtrEHTy/Sm
-        N+yaQo/rSj1sLi9mZmZ4jOH8/Pxsin9tVByDqKmpSUbRWDo7O99aLBbY7fZ3y0Pj8vgYJcW5VFVVdTCm
-        W0F6evqazMzMjysrKw+YzWbW19e3SFONUebL9BdYY2PjjYaGhkqVSvVzRkaGOCZbhXhajmya5pFUKpXT
-        eRN5YzYYDH5a9T10/ojX8ML3kUBMJm4hbiVuJ+7iFIvF/AfuJeYQ+R2v4bWkEYT/AWa2DIc4FoRPAAAA
-        AElFTkSuQmCC
-</value>
+  <data name="btn_new" xml:space="preserve">
+    <value>LÀM MỚI</value>
+  </data>
+  <data name="lbl_Forgot" xml:space="preserve">
+    <value>Quên mật khẩu ?</value>
+  </data>
+  <data name="lbl_password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="lbl_title" xml:space="preserve">
+    <value>ĐĂNG NHẬP</value>
+  </data>
+  <data name="lbl_username" xml:space="preserve">
+    <value>Tên đăng nhập</value>
   </data>
 </root>

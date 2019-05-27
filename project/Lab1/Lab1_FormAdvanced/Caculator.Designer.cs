@@ -262,6 +262,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Caculator";
             this.Text = "Caculator";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Caculator_FormClosed);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);

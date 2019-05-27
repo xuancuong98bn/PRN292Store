@@ -158,5 +158,10 @@ namespace Lab1_FormAdvanced
                 myRandom.Show();
             }
         }
+
+        private void MathSolution_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.OpenForms[0].Show();
+        }
     }
 }

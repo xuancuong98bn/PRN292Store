@@ -35,22 +35,22 @@
             this.lblB = new System.Windows.Forms.Label();
             this.lblA = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radLCM = new System.Windows.Forms.RadioButton();
+            this.radGCD = new System.Windows.Forms.RadioButton();
+            this.radLinear = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radLinear = new System.Windows.Forms.RadioButton();
-            this.radGCD = new System.Windows.Forms.RadioButton();
-            this.radLCM = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRequiredB
@@ -126,6 +126,63 @@
             this.panel1.Size = new System.Drawing.Size(371, 283);
             this.panel1.TabIndex = 4;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radLCM);
+            this.groupBox3.Controls.Add(this.radGCD);
+            this.groupBox3.Controls.Add(this.radLinear);
+            this.groupBox3.Location = new System.Drawing.Point(225, 19);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(134, 108);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Các tùy chọn tính toán";
+            // 
+            // radLCM
+            // 
+            this.radLCM.AutoSize = true;
+            this.radLCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLCM.Location = new System.Drawing.Point(7, 76);
+            this.radLCM.Name = "radLCM";
+            this.radLCM.Size = new System.Drawing.Size(118, 17);
+            this.radLCM.TabIndex = 2;
+            this.radLCM.Text = "Bội chung nhỏ nhất";
+            this.radLCM.UseVisualStyleBackColor = true;
+            // 
+            // radGCD
+            // 
+            this.radGCD.AutoSize = true;
+            this.radGCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radGCD.Location = new System.Drawing.Point(7, 52);
+            this.radGCD.Name = "radGCD";
+            this.radGCD.Size = new System.Drawing.Size(119, 17);
+            this.radGCD.TabIndex = 1;
+            this.radGCD.Text = "Ước chung lớn nhất";
+            this.radGCD.UseVisualStyleBackColor = true;
+            // 
+            // radLinear
+            // 
+            this.radLinear.AutoSize = true;
+            this.radLinear.Checked = true;
+            this.radLinear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLinear.Location = new System.Drawing.Point(7, 28);
+            this.radLinear.Name = "radLinear";
+            this.radLinear.Size = new System.Drawing.Size(105, 17);
+            this.radLinear.TabIndex = 0;
+            this.radLinear.TabStop = true;
+            this.radLinear.Text = "Giải PT bậc nhất";
+            this.radLinear.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblResult);
+            this.groupBox2.Location = new System.Drawing.Point(14, 208);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(345, 62);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Kết quả tính toán";
+            // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
@@ -134,6 +191,21 @@
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(0, 17);
             this.lblResult.TabIndex = 7;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblA);
+            this.groupBox1.Controls.Add(this.lblB);
+            this.groupBox1.Controls.Add(this.lblRequiredB);
+            this.groupBox1.Controls.Add(this.txtA);
+            this.groupBox1.Controls.Add(this.lblRequiredA);
+            this.groupBox1.Controls.Add(this.txtB);
+            this.groupBox1.Location = new System.Drawing.Point(14, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(204, 108);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin cần nhập";
             // 
             // panel2
             // 
@@ -178,78 +250,6 @@
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnExecute_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblA);
-            this.groupBox1.Controls.Add(this.lblB);
-            this.groupBox1.Controls.Add(this.lblRequiredB);
-            this.groupBox1.Controls.Add(this.txtA);
-            this.groupBox1.Controls.Add(this.lblRequiredA);
-            this.groupBox1.Controls.Add(this.txtB);
-            this.groupBox1.Location = new System.Drawing.Point(14, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(204, 108);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin cần nhập";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblResult);
-            this.groupBox2.Location = new System.Drawing.Point(14, 208);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(345, 62);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kết quả tính toán";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.radLCM);
-            this.groupBox3.Controls.Add(this.radGCD);
-            this.groupBox3.Controls.Add(this.radLinear);
-            this.groupBox3.Location = new System.Drawing.Point(225, 19);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(134, 108);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Các tùy chọn tính toán";
-            // 
-            // radLinear
-            // 
-            this.radLinear.AutoSize = true;
-            this.radLinear.Checked = true;
-            this.radLinear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLinear.Location = new System.Drawing.Point(7, 28);
-            this.radLinear.Name = "radLinear";
-            this.radLinear.Size = new System.Drawing.Size(105, 17);
-            this.radLinear.TabIndex = 0;
-            this.radLinear.TabStop = true;
-            this.radLinear.Text = "Giải PT bậc nhất";
-            this.radLinear.UseVisualStyleBackColor = true;
-            // 
-            // radGCD
-            // 
-            this.radGCD.AutoSize = true;
-            this.radGCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radGCD.Location = new System.Drawing.Point(7, 52);
-            this.radGCD.Name = "radGCD";
-            this.radGCD.Size = new System.Drawing.Size(119, 17);
-            this.radGCD.TabIndex = 1;
-            this.radGCD.Text = "Ước chung lớn nhất";
-            this.radGCD.UseVisualStyleBackColor = true;
-            // 
-            // radLCM
-            // 
-            this.radLCM.AutoSize = true;
-            this.radLCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLCM.Location = new System.Drawing.Point(7, 76);
-            this.radLCM.Name = "radLCM";
-            this.radLCM.Size = new System.Drawing.Size(118, 17);
-            this.radLCM.TabIndex = 2;
-            this.radLCM.Text = "Bội chung nhỏ nhất";
-            this.radLCM.UseVisualStyleBackColor = true;
-            // 
             // MathSolution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,14 +258,15 @@
             this.Controls.Add(this.panel1);
             this.Name = "MathSolution";
             this.Text = "Caculator";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MathSolution_FormClosed);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

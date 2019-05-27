@@ -160,5 +160,10 @@ namespace Lab1_FormAdvanced
                 mathSolution.Show();
             }
         }
+
+        private void Caculator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.OpenForms[0].Show();
+        }
     }
 }

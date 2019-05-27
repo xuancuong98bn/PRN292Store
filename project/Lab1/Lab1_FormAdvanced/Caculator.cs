@@ -19,7 +19,7 @@ namespace Lab1_FormAdvanced
         private void Caculate()
         {
             float a, b, result = 0;
-            if (CheckNumber(txtA, lblA, out a) && CheckNumber(txtB, lblB, out b))
+            if (CheckNumber(txtA, lblA, out a) && CheckNumber(txtB, lblB, out b) && CheckEmpty(cmbOperator, lblOperator))
             {
                 switch (cmbOperator.Text)
                 {
@@ -42,16 +42,12 @@ namespace Lab1_FormAdvanced
                             result = Div(a, b);
                         }
                         break;
-                    default:
-                        MessageBox.Show("Chọn toán tử", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        break;
-                        
                 }
                 txtResult.Text = result.ToString();
             }
         }
 
-        private bool CheckEmpty(TextBox txt, Label lbl)
+        private bool CheckEmpty(Control txt, Label lbl)
         {
             if (txt.Text.Trim() == "")
             {
@@ -146,11 +142,21 @@ namespace Lab1_FormAdvanced
             txtA.Text = "";
             txtB.Text = "";
             cmbOperator.Text = "";
+            txtResult.Text = "";
         }
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
             Caculate();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đến với bài tiếp theo không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                //chuyen bai 2
+            }
         }
     }
 }

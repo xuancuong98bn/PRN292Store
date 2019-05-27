@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cmbOperator = new System.Windows.Forms.ComboBox();
+            this.lblOperator = new System.Windows.Forms.Label();
             this.lblRequiredB = new System.Windows.Forms.Label();
             this.lblRequiredA = new System.Windows.Forms.Label();
             this.txtB = new System.Windows.Forms.TextBox();
@@ -37,19 +39,17 @@
             this.lblA = new System.Windows.Forms.Label();
             this.lblTittle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblOperator = new System.Windows.Forms.Label();
-            this.cmbOperator = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnExecute = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.lblResult = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnExecute = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -66,6 +66,29 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(345, 100);
             this.panel3.TabIndex = 2;
+            // 
+            // cmbOperator
+            // 
+            this.cmbOperator.FormattingEnabled = true;
+            this.cmbOperator.Items.AddRange(new object[] {
+            "+",
+            "-",
+            "*",
+            "/"});
+            this.cmbOperator.Location = new System.Drawing.Point(168, 68);
+            this.cmbOperator.Name = "cmbOperator";
+            this.cmbOperator.Size = new System.Drawing.Size(48, 21);
+            this.cmbOperator.TabIndex = 7;
+            // 
+            // lblOperator
+            // 
+            this.lblOperator.AutoSize = true;
+            this.lblOperator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOperator.Location = new System.Drawing.Point(4, 69);
+            this.lblOperator.Name = "lblOperator";
+            this.lblOperator.Size = new System.Drawing.Size(123, 17);
+            this.lblOperator.TabIndex = 6;
+            this.lblOperator.Text = "Chọn phép tính:";
             // 
             // lblRequiredB
             // 
@@ -151,70 +174,14 @@
             this.panel1.Size = new System.Drawing.Size(371, 283);
             this.panel1.TabIndex = 4;
             // 
-            // lblOperator
+            // panel4
             // 
-            this.lblOperator.AutoSize = true;
-            this.lblOperator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOperator.Location = new System.Drawing.Point(4, 69);
-            this.lblOperator.Name = "lblOperator";
-            this.lblOperator.Size = new System.Drawing.Size(123, 17);
-            this.lblOperator.TabIndex = 6;
-            this.lblOperator.Text = "Chọn phép tính:";
-            // 
-            // cmbOperator
-            // 
-            this.cmbOperator.FormattingEnabled = true;
-            this.cmbOperator.Items.AddRange(new object[] {
-            "+",
-            "-",
-            "*",
-            "/"});
-            this.cmbOperator.Location = new System.Drawing.Point(168, 68);
-            this.cmbOperator.Name = "cmbOperator";
-            this.cmbOperator.Size = new System.Drawing.Size(48, 21);
-            this.cmbOperator.TabIndex = 7;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnNext);
-            this.panel2.Controls.Add(this.btnReset);
-            this.panel2.Controls.Add(this.btnExecute);
-            this.panel2.Location = new System.Drawing.Point(14, 188);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(345, 33);
-            this.panel2.TabIndex = 4;
-            // 
-            // btnExecute
-            // 
-            this.btnExecute.BackColor = System.Drawing.Color.Aquamarine;
-            this.btnExecute.Location = new System.Drawing.Point(7, 4);
-            this.btnExecute.Name = "btnExecute";
-            this.btnExecute.Size = new System.Drawing.Size(75, 23);
-            this.btnExecute.TabIndex = 0;
-            this.btnExecute.Text = "THỰC HIỆN";
-            this.btnExecute.UseVisualStyleBackColor = false;
-            this.btnExecute.Click += new System.EventHandler(this.btnExecute_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.BackColor = System.Drawing.Color.Aquamarine;
-            this.btnReset.Location = new System.Drawing.Point(129, 4);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 1;
-            this.btnReset.Text = "LÀM MỚI";
-            this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.Aquamarine;
-            this.btnNext.Location = new System.Drawing.Point(256, 4);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.Text = "TIẾP THEO";
-            this.btnNext.UseVisualStyleBackColor = false;
+            this.panel4.Controls.Add(this.txtResult);
+            this.panel4.Controls.Add(this.lblResult);
+            this.panel4.Location = new System.Drawing.Point(14, 227);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(345, 39);
+            this.panel4.TabIndex = 5;
             // 
             // txtResult
             // 
@@ -234,14 +201,48 @@
             this.lblResult.TabIndex = 7;
             this.lblResult.Text = "-->Kết quả:";
             // 
-            // panel4
+            // panel2
             // 
-            this.panel4.Controls.Add(this.txtResult);
-            this.panel4.Controls.Add(this.lblResult);
-            this.panel4.Location = new System.Drawing.Point(14, 227);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(345, 39);
-            this.panel4.TabIndex = 5;
+            this.panel2.Controls.Add(this.btnNext);
+            this.panel2.Controls.Add(this.btnReset);
+            this.panel2.Controls.Add(this.btnExecute);
+            this.panel2.Location = new System.Drawing.Point(14, 188);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(345, 33);
+            this.panel2.TabIndex = 4;
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnNext.Location = new System.Drawing.Point(256, 4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.Text = "TIẾP THEO";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnReset.Location = new System.Drawing.Point(129, 4);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 1;
+            this.btnReset.Text = "LÀM MỚI";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnExecute
+            // 
+            this.btnExecute.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnExecute.Location = new System.Drawing.Point(7, 4);
+            this.btnExecute.Name = "btnExecute";
+            this.btnExecute.Size = new System.Drawing.Size(75, 23);
+            this.btnExecute.TabIndex = 0;
+            this.btnExecute.Text = "THỰC HIỆN";
+            this.btnExecute.UseVisualStyleBackColor = false;
+            this.btnExecute.Click += new System.EventHandler(this.btnExecute_Click);
             // 
             // Caculator
             // 
@@ -255,9 +256,9 @@
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using System.Threading;
 using System.Reflection;
+using System.Resources;
 
 namespace Lab1_FormAdvanced
 {
@@ -17,42 +18,6 @@ namespace Lab1_FormAdvanced
         public Login() 
         {
             InitializeComponent();
-        }
-
-        private void SetupInternalization(string language = "vi-VN")
-        {
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(language);
-            lblTitle.Text = Resource.lbl_title;
-            lblUsername.Text = Resource.lbl_username;
-            lblPassword.Text = Resource.lbl_password;
-            btnLogin.Text = Resource.btn_login;
-            btnNew.Text = Resource.btn_new;
-            btnExit.Text = Resource.btn_exit;
-            lblForgot.Text = Resource.lbl_Forgot;
-        }
-
-        private void SetupInternalizationByFile(string language = "vi")
-        {
-            if (language == "en")
-            {
-                lblTitle.Text = Resource.lbl_title;
-                lblUsername.Text = Resource.lbl_username;
-                lblPassword.Text = Resource.lbl_password;
-                btnLogin.Text = Resource.btn_login;
-                btnNew.Text = Resource.btn_new;
-                btnExit.Text = Resource.btn_exit;
-                lblForgot.Text = Resource.lbl_Forgot;
-            }
-            else if (language == "vi")
-            {
-                lblTitle.Text = Resource_vi.lbl_title;
-                lblUsername.Text = Resource_vi.lbl_username;
-                lblPassword.Text = Resource_vi.lbl_password;
-                btnLogin.Text = Resource_vi.btn_login;
-                btnNew.Text = Resource_vi.btn_new;
-                btnExit.Text = Resource_vi.btn_exit;
-                lblForgot.Text = Resource_vi.lbl_Forgot;
-            }
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -151,25 +116,33 @@ namespace Lab1_FormAdvanced
 
         private void radVi_CheckedChanged(object sender, EventArgs e)
         {
-            SetupInternalizationByFile("vi");
+            if (radEn.Checked)
+            {
+                CultureInfo ci = new CultureInfo("en-US");
+                getRes(ci);
+            }
+            else
+            {
+                CultureInfo ci = new CultureInfo("vi-VN");
+            }
         }
 
         private void radEn_CheckedChanged(object sender, EventArgs e)
         {
-            SetupInternalizationByFile("en");
+            
         }
 
         private void getRes(CultureInfo ci)
         {
-            //Assembly a = Assembly.Load("Lab1_FormAdvanced");
-            //ResourceManager rm = new ResourceManager("login.Lang.langres", a);
-            //lbLogin.Text = rm.GetString("lbLogin", ci);
-            //lbName.Text = rm.GetString("lbName", ci);
-            //lbPass.Text = rm.GetString("lbPass", ci);
-            //lbForget.Text = rm.GetString("lbForget", ci);
-            //btnExit.Text = rm.GetString("btnExit", ci);
-            //btnLogin.Text = rm.GetString("btnLogin", ci);
-            //btnReset.Text = rm.GetString("btnReset", ci);
+            Assembly a = Assembly.Load("Lab1_FormAdvanced");
+            ResourceManager rm = new ResourceManager("Resource", a);
+            lblTitle.Text = rm.GetString("lbl_title", ci);
+            lblUsername.Text = rm.GetString("lbl_username", ci);
+            lblPassword.Text = rm.GetString("lbl_password", ci);
+            btnLogin.Text = rm.GetString("btn_login", ci);
+            btnNew.Text = rm.GetString("btn_new", ci);
+            btnExit.Text = rm.GetString("btn_exit", ci);
+            lblForgot.Text = rm.GetString("lbl_Forgot", ci);
         }
     }
 }

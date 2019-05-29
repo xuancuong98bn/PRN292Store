@@ -10,26 +10,24 @@ namespace Exe_Student
     {
         public string code { get; set; }
         public string name { get; set; }
-        public string subject { get; set; }
+        public int idSubject { get; set; }
         public int mark { get; set; }
 
         public Student()
         {
         }
 
-        public Student(string code, string name, string subject, int mark)
+        public Student(string code, string name, int idSubject, int mark)
         {
             this.code = code;
             this.name = name;
-            this.subject = subject;
+            this.idSubject = idSubject;
             this.mark = mark;
         }
 
-        
-
         public override string ToString()
         {
-            return code + "\t" + name + "\t" + subject + "\t" + mark;
+            return code + "\t" + name + "\t" + idSubject + "\t" + mark;
         }
     }
 }

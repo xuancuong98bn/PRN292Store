@@ -7,16 +7,61 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Exe_Student
 {
     public partial class Form1 : Form
     {
+
+        string connectionString = ConfigurationManager.ConnectionStrings["ManagerPRN292"].ConnectionString;
+
+        /// <summary>
+        /// Cách 1 Kết nối db sử dụng sqlConnection, sqlCommand, sqlDataReader
+        /// Cách này là cách truyền thống, đầy đủ các bước mở kết nối lấy data và đóng kết nối
+        /// </summary>
+        private void getSuject()
+        {
+            string sql = @"SELECT * FROM tblSubject";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<Subject> list = new List<Subject>();
+            while (dr.Read())
+            {
+                int id = Convert.ToInt32(dr["id"]);
+                string name = dr["name"].ToString();
+                list.Add(new Subject(id, name));
+            }
+            cmbSubject.DataSource = list;
+            cmbSubject.DisplayMember = "name";
+            cmbSubject.ValueMember = "id";
+            conn.Close();
+        }
+        
+        /// <summary>
+        /// Cách 2 Kết nối db sử dụng dataAdapter
+        /// Thường sử dụng cách này hơn vì nó dễ thao tác
+        /// </summary>
+        private void getStudent()
+        {
+            string sql = @"SELECT * FROM tblStudent";
+            SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            dataGrid.DataSource = ds.Tables[0];
+        }
+
         Dictionary<string, Student> dicStudent;
         public Form1()
         {
             InitializeComponent();
             dicStudent = new Dictionary<string, Student>();
+            getSuject();
+            getStudent();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -79,7 +124,7 @@ namespace Exe_Student
             if (true) {
                 string code = txtCode.Text.Trim();
                 string name = Normalization(txtName.Text);
-                string subject = cmbSubject.Text;
+                int subject = (int) cmbSubject.SelectedValue;
                 int mark = Convert.ToInt32(numMark.Text);
                 Student student = new Student(code, name, subject, mark);
                 if (!dicStudent.ContainsKey(code))
@@ -90,13 +135,13 @@ namespace Exe_Student
                 else
                 {
                     dicStudent[code] = student;
-                    Update();
+                    Updatee();
                 }
                 
             }
         }
 
-        private void Update()
+        private void Updatee()
         {
             listBoxInform.Items.Clear();
             foreach (var item in dicStudent)

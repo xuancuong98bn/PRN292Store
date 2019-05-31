@@ -50,7 +50,6 @@ namespace Exe_Student
         public void ExecuteNonQuery(string sql)
         {
             conn = new SqlConnection(connectionString);
-            DataTable dt = new DataTable();
             cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = sql;
@@ -59,14 +58,5 @@ namespace Exe_Student
             conn.Close();
         }
 
-        private void insertSujectDA()
-        {
-            //SqlConnection conn = new SqlConnection(connectionString);
-            //conn.Open();
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //da = data.InsertDataAdaper(conn, da, new Subject(10, "Tin học"));
-            //da.InsertCommand.ExecuteNonQuery();
-            //conn.Close();
-        }
     }
 }

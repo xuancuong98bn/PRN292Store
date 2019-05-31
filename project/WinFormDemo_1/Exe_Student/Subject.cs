@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Exe_Student
 {
-    class Subject
+    public class Subject
     {
         public int id { get; set; }
         public string name { get; set; }

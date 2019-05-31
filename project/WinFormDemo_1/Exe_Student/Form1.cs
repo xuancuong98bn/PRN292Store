@@ -17,14 +17,14 @@ namespace Exe_Student
 
         private void getSuject()
         {
-            cmbSubject.DataSource = DataProvider.Instance.ExecuteQuery("SELECT * FROM tblSubject");
+            cmbSubject.DataSource = DataAccess.ExecuteQuery("SELECT * FROM tblSubject");
             cmbSubject.DisplayMember = "name";
             cmbSubject.ValueMember = "id";
         }
 
         private void getStudent()
         {
-            listBoxInform.DataSource = DataProvider.Instance.ExecuteQuery("SELECT code, name FROM tblStudent");
+            listBoxInform.DataSource = DataAccess.ExecuteQuery("SELECT code, name FROM tblStudent");
             listBoxInform.DisplayMember = "name";
             listBoxInform.ValueMember = "code";
             listBoxInform.SelectedIndex = 1;
@@ -55,7 +55,7 @@ namespace Exe_Student
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string sql = "INSERT INTO tblStudent VALUES ('" + txtCode.Text + "', '" + txtName.Text + "', " + cmbSubject.SelectedValue + ", " + numMark.Value + ")";
-            DataProvider.Instance.ExecuteNonQuery(sql);
+            DataAccess.ExecuteNonQuery(sql);
             getStudent();
         }
 
@@ -159,12 +159,12 @@ namespace Exe_Student
 
         private void listBoxInform_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = DataProvider.Instance.ExecuteQuery("SELECT * FROM tblStudent WHERE code = '" + listBoxInform.SelectedValue + "'");
-            object[] row = dt.Rows[0].ItemArray;
-            txtCode.Text = row[0].ToString();
-            txtName.Text = row[1].ToString();
-            cmbSubject.SelectedValue = Convert.ToUInt32(row[2]);
-            numMark.Value = Convert.ToUInt32(row[3]);
+            //DataTable dt = DataProvider.Instance.ExecuteQuery("SELECT * FROM tblStudent WHERE code = '" + listBoxInform.SelectedValue + "'");
+            //object[] row = dt.Rows[0].ItemArray;
+            //txtCode.Text = row[0].ToString();
+            //txtName.Text = row[1].ToString();
+            //cmbSubject.SelectedValue = Convert.ToUInt32(row[2]);
+            //numMark.Value = Convert.ToUInt32(row[3]);
         }
     }
 }

@@ -14,9 +14,9 @@ namespace Exe_Student
 {
     public partial class Form1 : Form
     {
-
-        string connectionString = ConfigurationManager.ConnectionStrings["ManagerPRN292"].ConnectionString;
-
+        DataAccess data;
+        //string connectionString = ConfigurationManager.ConnectionStrings["ManagerPRN292"].ConnectionString;
+        string connectionString = "";
         /// <summary>
         /// Cách 1 Kết nối db sử dụng sqlConnection, sqlCommand, sqlDataReader
         /// Cách này là cách truyền thống, đầy đủ các bước mở kết nối lấy data và đóng kết nối
@@ -38,6 +38,7 @@ namespace Exe_Student
             cmbSubject.DataSource = list;
             cmbSubject.DisplayMember = "name";
             cmbSubject.ValueMember = "id";
+            dr.Close();
             conn.Close();
         }
         
@@ -47,21 +48,43 @@ namespace Exe_Student
         /// </summary>
         private void getStudent()
         {
-            string sql = @"SELECT * FROM tblStudent";
-            SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
+            //string sql = @"SELECT * FROM tblStudent";
+            //SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
+            SqlDataAdapter da = data.SelectAll("tblStudent", connectionString);
             DataSet ds = new DataSet();
             da.Fill(ds);
             DataTable dt = ds.Tables[0];
             dataGrid.DataSource = ds.Tables[0];
         }
 
+        void re(int a)
+        {
+            a= a + 3;
+        }
+        private void insert()
+        {
+            string sql = @"SELECT * FROM tblSubject";
+            SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            var newRow = ds.Tables[0].NewRow();
+            newRow["id"] = 9;
+            newRow["name"] = "GDCD";
+            ds.Tables[0].Rows.Add(newRow);
+            new SqlCommandBuilder(da);
+            da.Update(ds);
+        }
+
         Dictionary<string, Student> dicStudent;
         public Form1()
         {
             InitializeComponent();
+            data = new DataAccess("ManagerPRN292");
+            connectionString = data.connectionString;
             dicStudent = new Dictionary<string, Student>();
             getSuject();
             getStudent();
+            data.UpdateData(new Subject(9, "Địa lý"));
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -106,13 +129,11 @@ namespace Exe_Student
             }
             if (cmbSubject.Text.Trim() == "")
             {
-                MessageBox.Show("Chọn môn học cho nhân viên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chọn môn học cần thêm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
         }
-
-
 
         private bool CheckName()
         {
@@ -121,7 +142,7 @@ namespace Exe_Student
 
         private void Add()
         {
-            if (true) {
+            if (CheckInput()) {
                 string code = txtCode.Text.Trim();
                 string name = Normalization(txtName.Text);
                 int subject = (int) cmbSubject.SelectedValue;

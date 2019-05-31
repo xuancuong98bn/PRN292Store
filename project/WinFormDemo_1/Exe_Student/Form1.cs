@@ -14,77 +14,29 @@ namespace Exe_Student
 {
     public partial class Form1 : Form
     {
-        DataAccess data;
-        //string connectionString = ConfigurationManager.ConnectionStrings["ManagerPRN292"].ConnectionString;
-        string connectionString = "";
-        /// <summary>
-        /// Cách 1 Kết nối db sử dụng sqlConnection, sqlCommand, sqlDataReader
-        /// Cách này là cách truyền thống, đầy đủ các bước mở kết nối lấy data và đóng kết nối
-        /// </summary>
+
         private void getSuject()
         {
-            string sql = @"SELECT * FROM tblSubject";
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataReader dr = cmd.ExecuteReader();
-            List<Subject> list = new List<Subject>();
-            while (dr.Read())
-            {
-                int id = Convert.ToInt32(dr["id"]);
-                string name = dr["name"].ToString();
-                list.Add(new Subject(id, name));
-            }
-            cmbSubject.DataSource = list;
+            cmbSubject.DataSource = DataProvider.Instance.ExecuteQuery("SELECT * FROM tblSubject");
             cmbSubject.DisplayMember = "name";
             cmbSubject.ValueMember = "id";
-            dr.Close();
-            conn.Close();
-        }
-        
-        /// <summary>
-        /// Cách 2 Kết nối db sử dụng dataAdapter
-        /// Thường sử dụng cách này hơn vì nó dễ thao tác
-        /// </summary>
-        private void getStudent()
-        {
-            //string sql = @"SELECT * FROM tblStudent";
-            //SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
-            SqlDataAdapter da = data.SelectAll("tblStudent", connectionString);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            DataTable dt = ds.Tables[0];
-            dataGrid.DataSource = ds.Tables[0];
         }
 
-        void re(int a)
+        private void getStudent()
         {
-            a= a + 3;
-        }
-        private void insert()
-        {
-            string sql = @"SELECT * FROM tblSubject";
-            SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            var newRow = ds.Tables[0].NewRow();
-            newRow["id"] = 9;
-            newRow["name"] = "GDCD";
-            ds.Tables[0].Rows.Add(newRow);
-            new SqlCommandBuilder(da);
-            da.Update(ds);
+            listBoxInform.DataSource = DataProvider.Instance.ExecuteQuery("SELECT code, name FROM tblStudent");
+            listBoxInform.DisplayMember = "name";
+            listBoxInform.ValueMember = "code";
+            listBoxInform.SelectedIndex = 1;
         }
 
         Dictionary<string, Student> dicStudent;
         public Form1()
         {
             InitializeComponent();
-            data = new DataAccess("ManagerPRN292");
-            connectionString = data.connectionString;
             dicStudent = new Dictionary<string, Student>();
             getSuject();
             getStudent();
-            data.UpdateData(new Subject(9, "Địa lý"));
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -102,7 +54,9 @@ namespace Exe_Student
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Add();
+            string sql = "INSERT INTO tblStudent VALUES ('" + txtCode.Text + "', '" + txtName.Text + "', " + cmbSubject.SelectedValue + ", " + numMark.Value + ")";
+            DataProvider.Instance.ExecuteNonQuery(sql);
+            getStudent();
         }
 
         private bool CheckInput()
@@ -142,10 +96,11 @@ namespace Exe_Student
 
         private void Add()
         {
-            if (CheckInput()) {
+            if (CheckInput())
+            {
                 string code = txtCode.Text.Trim();
                 string name = Normalization(txtName.Text);
-                int subject = (int) cmbSubject.SelectedValue;
+                int subject = (int)cmbSubject.SelectedValue;
                 int mark = Convert.ToInt32(numMark.Text);
                 Student student = new Student(code, name, subject, mark);
                 if (!dicStudent.ContainsKey(code))
@@ -158,7 +113,7 @@ namespace Exe_Student
                     dicStudent[code] = student;
                     Updatee();
                 }
-                
+
             }
         }
 
@@ -200,6 +155,16 @@ namespace Exe_Student
                 }
             }
             return str;
+        }
+
+        private void listBoxInform_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable dt = DataProvider.Instance.ExecuteQuery("SELECT * FROM tblStudent WHERE code = '" + listBoxInform.SelectedValue + "'");
+            object[] row = dt.Rows[0].ItemArray;
+            txtCode.Text = row[0].ToString();
+            txtName.Text = row[1].ToString();
+            cmbSubject.SelectedValue = Convert.ToUInt32(row[2]);
+            numMark.Value = Convert.ToUInt32(row[3]);
         }
     }
 }

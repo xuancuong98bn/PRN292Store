@@ -23,33 +23,31 @@ namespace Exe_Student
         }
 
         //-------------- DATA ADAPTER ---------------
-        public SqlDataAdapter SelectAll(string table, string connectionString)
+        public DataTable SelectTable(string table)
         {
             string sql = @"SELECT * FROM " + table;
             SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable SelectByDA(string sql)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        public SqlDataAdapter InsertDataAdaper(SqlConnection conn, SqlDataAdapter da, Subject subject)
+        {
+            string sql = @"INSERT INTO tblSubject VALUES (@id, @name)";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@id", subject.id);
+            cmd.Parameters.AddWithValue("@name", subject.name);
+            da.InsertCommand = cmd;
             return da;
-        }
-
-        public SqlDataAdapter SelectDataAdapter(SqlConnection connection, SqlDataAdapter dataAdapter)
-        {
-            string sql = @"SELECT * FROM Customers WHERE Country = @Country AND City = @City";
-            SqlCommand command = new SqlCommand(sql, connection);
-            command.Parameters.Add("@Country", SqlDbType.NVarChar, 15);
-            command.Parameters.Add("@City", SqlDbType.NVarChar, 15);
-
-            dataAdapter.SelectCommand = command;
-            return dataAdapter;
-        }
-
-        public SqlDataAdapter InsertDataAdaper(SqlConnection connection, SqlDataAdapter dataAdapter)
-        {
-            string sql = @"INSERT INTO Customers (CustomerID, CompanyName) VALUES (@CustomerID, @CompanyName)";
-            SqlCommand command = new SqlCommand(sql, connection);
-            command.Parameters.Add("@CustomerID", SqlDbType.NChar, 5, "CustomerID");
-            command.Parameters.Add("@CompanyName", SqlDbType.NVarChar, 40, "CompanyName");
-
-            dataAdapter.InsertCommand = command;
-            return dataAdapter;
         }
 
         public SqlDataAdapter UpdateDataAdaper(SqlConnection connection, SqlDataAdapter dataAdapter)

@@ -14,7 +14,7 @@ namespace Exe_Student
 {
     public partial class Form1 : Form
     {
-
+        bool loadDone = false;
         private void getSuject()
         {
             cmbSubject.DataSource = DataAccess.ExecuteQuery("SELECT * FROM tblSubject");
@@ -27,7 +27,6 @@ namespace Exe_Student
             listBoxInform.DataSource = DataAccess.ExecuteQuery("SELECT code, name FROM tblStudent");
             listBoxInform.DisplayMember = "name";
             listBoxInform.ValueMember = "code";
-            listBoxInform.SelectedIndex = 1;
         }
 
         Dictionary<string, Student> dicStudent;
@@ -35,8 +34,6 @@ namespace Exe_Student
         {
             InitializeComponent();
             dicStudent = new Dictionary<string, Student>();
-            getSuject();
-            getStudent();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -54,9 +51,6 @@ namespace Exe_Student
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string sql = "INSERT INTO tblStudent VALUES ('" + txtCode.Text + "', '" + txtName.Text + "', " + cmbSubject.SelectedValue + ", " + numMark.Value + ")";
-            DataAccess.ExecuteNonQuery(sql);
-            getStudent();
         }
 
         private bool CheckInput()
@@ -91,7 +85,7 @@ namespace Exe_Student
 
         private bool CheckName()
         {
-            return txtName.Text.Length <= 15;
+            return txtName.Text.Trim().Length <= 15;
         }
 
         private void Add()
@@ -159,12 +153,76 @@ namespace Exe_Student
 
         private void listBoxInform_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //DataTable dt = DataProvider.Instance.ExecuteQuery("SELECT * FROM tblStudent WHERE code = '" + listBoxInform.SelectedValue + "'");
-            //object[] row = dt.Rows[0].ItemArray;
-            //txtCode.Text = row[0].ToString();
-            //txtName.Text = row[1].ToString();
-            //cmbSubject.SelectedValue = Convert.ToUInt32(row[2]);
-            //numMark.Value = Convert.ToUInt32(row[3]);
+            if (loadDone)
+            {
+                DataTable dt = DataProvider.Instance.ExecuteQuery("SELECT * FROM tblStudent WHERE code = '" + listBoxInform.SelectedValue + "'");
+                object[] row = dt.Rows[0].ItemArray;
+                txtCode.Text = row[0].ToString().Trim();
+                txtName.Text = row[1].ToString().Trim();
+                cmbSubject.SelectedValue = Convert.ToUInt32(row[2]);
+                numMark.Value = Convert.ToUInt32(row[3]);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            getSuject();
+            getStudent();
+            loadDone = true;
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            if (CheckInput())
+            {
+                if (!DataAccess.IsDupplicate("SELECT code FROM tblStudent WHERE code = '" + txtCode.Text + "'"))
+                {
+                    string sql = "INSERT INTO tblStudent VALUES ('" + txtCode.Text + "', '" + txtName.Text + "', " + cmbSubject.SelectedValue + ", " + numMark.Value + ")";
+                    DataAccess.ExecuteNonQuery(sql);
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    getStudent();
+                }
+                else
+                {
+                    MessageBox.Show("Mã sinh viên bị trùng lặp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (CheckInput())
+            {
+                if (txtCode.Text.Trim().Equals(listBoxInform.SelectedValue.ToString().Trim()))
+                {
+                    string sql = "UPDATE tblStudent SET name = '" + txtName.Text + "', idSubject = " + cmbSubject.SelectedValue + ", mark = " + numMark.Value + " WHERE code ='" + listBoxInform.SelectedValue + "'";
+                    DataAccess.ExecuteNonQuery(sql);
+                    MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    getStudent();
+                }
+                else
+                {
+                    if (!DataAccess.IsDupplicate("SELECT code FROM tblStudent WHERE code = '" + txtCode.Text + "'"))
+                    {
+                        string sql = "UPDATE tblStudent SET code = '" + txtCode.Text + "', name = '" + txtName.Text + "', idSubject = " + cmbSubject.SelectedValue + ", mark = " + numMark.Value + " WHERE code ='" + listBoxInform.SelectedValue + "'";
+                        DataAccess.ExecuteNonQuery(sql);
+                        MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        getStudent();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã sinh viên bị trùng lặp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string sql = "DELETE FROM tblStudent WHERE code = '" + listBoxInform.SelectedValue + "'";
+            DataAccess.ExecuteNonQuery(sql);
+            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            getStudent();
         }
     }
 }

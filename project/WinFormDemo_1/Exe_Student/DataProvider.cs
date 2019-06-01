@@ -30,7 +30,6 @@ namespace Exe_Student
         }
         public DataProvider()
         {
-
         }
 
         public DataTable ExecuteQuery(string sql)
@@ -47,15 +46,51 @@ namespace Exe_Student
         /// lưu ý với trường hợp value truyền vào là text ở sql thì cần dấu ''
         /// </summary>
         /// <param name="sql"></param>
-        public void ExecuteNonQuery(string sql)
+        public bool ExecuteNonQuery(string sql)
         {
-            conn = new SqlConnection(connectionString);
-            cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = sql;
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                // Close database connection
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return true;
+        }
+
+        public object ExecuteScalarQuery(string sql)
+        {
+            object result = null;
+            try
+            {
+                cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                conn.Open();
+                result = cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                // Close database connection
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return result;
         }
 
     }

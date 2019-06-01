@@ -141,5 +141,14 @@ namespace Exe_Student
             }
             return list;
         }
+
+        //-------------------- OTHER -----------------------
+        public static bool IsDupplicate(string sql)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(sql, connectionString);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt.Rows.Count != 0;
+        }
     }
 }

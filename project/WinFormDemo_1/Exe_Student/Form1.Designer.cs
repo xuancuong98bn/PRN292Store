@@ -72,9 +72,9 @@
             // dataGrid
             // 
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Location = new System.Drawing.Point(27, 280);
+            this.dataGrid.Location = new System.Drawing.Point(120, 274);
             this.dataGrid.Name = "dataGrid";
-            this.dataGrid.Size = new System.Drawing.Size(526, 191);
+            this.dataGrid.Size = new System.Drawing.Size(491, 191);
             this.dataGrid.TabIndex = 2;
             // 
             // groupBox2
@@ -126,6 +126,11 @@
             // numMark
             // 
             this.numMark.Location = new System.Drawing.Point(94, 185);
+            this.numMark.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numMark.Name = "numMark";
             this.numMark.Size = new System.Drawing.Size(120, 20);
             this.numMark.TabIndex = 11;
@@ -200,6 +205,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Enabled = false;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(7, 169);
             this.btnDelete.Name = "btnDelete";
@@ -211,6 +217,7 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(7, 140);
             this.btnUpdate.Name = "btnUpdate";

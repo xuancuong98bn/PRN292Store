@@ -30,28 +30,28 @@
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBoxInfor = new System.Windows.Forms.GroupBox();
-            this.lblCode = new System.Windows.Forms.Label();
-            this.lblDOB = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblGender = new System.Windows.Forms.Label();
-            this.txtCode = new System.Windows.Forms.TextBox();
-            this.txtDOB = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.radMale = new System.Windows.Forms.RadioButton();
-            this.radFemale = new System.Windows.Forms.RadioButton();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnModify = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.groupBoxInfor = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radFemale = new System.Windows.Forms.RadioButton();
+            this.radMale = new System.Windows.Forms.RadioButton();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtDOB = new System.Windows.Forms.TextBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
+            this.lblGender = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblDOB = new System.Windows.Forms.Label();
+            this.lblCode = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblListView = new System.Windows.Forms.Label();
             this.dataGridCustomer = new System.Windows.Forms.DataGridView();
+            this.lblListView = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBoxInfor.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,6 +84,79 @@
             this.panel1.Size = new System.Drawing.Size(506, 40);
             this.panel1.TabIndex = 1;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.Red;
+            this.btnExit.Location = new System.Drawing.Point(416, 6);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(80, 25);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.Red;
+            this.btnDelete.Location = new System.Drawing.Point(335, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(80, 25);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.Control;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.Red;
+            this.btnUpdate.Location = new System.Drawing.Point(254, 6);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(80, 25);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // btnModify
+            // 
+            this.btnModify.BackColor = System.Drawing.SystemColors.Control;
+            this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModify.ForeColor = System.Drawing.Color.Red;
+            this.btnModify.Location = new System.Drawing.Point(173, 6);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(80, 25);
+            this.btnModify.TabIndex = 2;
+            this.btnModify.Text = "Sửa";
+            this.btnModify.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.Red;
+            this.btnAdd.Location = new System.Drawing.Point(91, 6);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(80, 25);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.ForeColor = System.Drawing.Color.Red;
+            this.btnNew.Location = new System.Drawing.Point(10, 6);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(80, 25);
+            this.btnNew.TabIndex = 0;
+            this.btnNew.Text = "Mới";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // groupBoxInfor
             // 
             this.groupBoxInfor.Controls.Add(this.panel2);
@@ -105,49 +178,74 @@
             this.groupBoxInfor.TabStop = false;
             this.groupBoxInfor.Text = "Thông tin khách hàng";
             // 
-            // lblCode
+            // panel2
             // 
-            this.lblCode.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.lblCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.ForeColor = System.Drawing.Color.Black;
-            this.lblCode.Location = new System.Drawing.Point(6, 36);
-            this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(100, 23);
-            this.lblCode.TabIndex = 0;
-            this.lblCode.Text = "Mã khách hàng:";
+            this.panel2.Controls.Add(this.radFemale);
+            this.panel2.Controls.Add(this.radMale);
+            this.panel2.Location = new System.Drawing.Point(394, 61);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 23);
+            this.panel2.TabIndex = 9;
             // 
-            // lblDOB
+            // radFemale
             // 
-            this.lblDOB.AutoSize = true;
-            this.lblDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDOB.ForeColor = System.Drawing.Color.Black;
-            this.lblDOB.Location = new System.Drawing.Point(6, 67);
-            this.lblDOB.Name = "lblDOB";
-            this.lblDOB.Size = new System.Drawing.Size(67, 13);
-            this.lblDOB.TabIndex = 1;
-            this.lblDOB.Text = "Ngày sinh:";
+            this.radFemale.AutoSize = true;
+            this.radFemale.ForeColor = System.Drawing.Color.Black;
+            this.radFemale.Location = new System.Drawing.Point(108, 3);
+            this.radFemale.Name = "radFemale";
+            this.radFemale.Size = new System.Drawing.Size(41, 17);
+            this.radFemale.TabIndex = 1;
+            this.radFemale.Text = "Nữ";
+            this.radFemale.UseVisualStyleBackColor = true;
             // 
-            // lblAddress
+            // radMale
             // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.ForeColor = System.Drawing.Color.Black;
-            this.lblAddress.Location = new System.Drawing.Point(6, 97);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(51, 13);
-            this.lblAddress.TabIndex = 2;
-            this.lblAddress.Text = "Địa chỉ:";
+            this.radMale.AutoSize = true;
+            this.radMale.Checked = true;
+            this.radMale.ForeColor = System.Drawing.Color.Black;
+            this.radMale.Location = new System.Drawing.Point(26, 3);
+            this.radMale.Name = "radMale";
+            this.radMale.Size = new System.Drawing.Size(50, 17);
+            this.radMale.TabIndex = 0;
+            this.radMale.TabStop = true;
+            this.radMale.Text = "Nam";
+            this.radMale.UseVisualStyleBackColor = true;
             // 
-            // lblName
+            // txtName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.Black;
-            this.lblName.Location = new System.Drawing.Point(284, 36);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(104, 13);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Tên khách hàng:";
+            this.txtName.Enabled = false;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(394, 33);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(200, 20);
+            this.txtName.TabIndex = 8;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Enabled = false;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(102, 94);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(339, 20);
+            this.txtAddress.TabIndex = 7;
+            // 
+            // txtDOB
+            // 
+            this.txtDOB.Enabled = false;
+            this.txtDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDOB.Location = new System.Drawing.Point(102, 64);
+            this.txtDOB.Name = "txtDOB";
+            this.txtDOB.Size = new System.Drawing.Size(153, 20);
+            this.txtDOB.TabIndex = 6;
+            // 
+            // txtCode
+            // 
+            this.txtCode.Enabled = false;
+            this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCode.Location = new System.Drawing.Point(102, 33);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(100, 20);
+            this.txtCode.TabIndex = 5;
             // 
             // lblGender
             // 
@@ -160,142 +258,49 @@
             this.lblGender.TabIndex = 4;
             this.lblGender.Text = "Giới tính:";
             // 
-            // txtCode
+            // lblName
             // 
-            this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Location = new System.Drawing.Point(102, 33);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(100, 20);
-            this.txtCode.TabIndex = 5;
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.Black;
+            this.lblName.Location = new System.Drawing.Point(284, 36);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(104, 13);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Tên khách hàng:";
             // 
-            // txtDOB
+            // lblAddress
             // 
-            this.txtDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDOB.Location = new System.Drawing.Point(102, 64);
-            this.txtDOB.Name = "txtDOB";
-            this.txtDOB.Size = new System.Drawing.Size(153, 20);
-            this.txtDOB.TabIndex = 6;
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.ForeColor = System.Drawing.Color.Black;
+            this.lblAddress.Location = new System.Drawing.Point(6, 97);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(51, 13);
+            this.lblAddress.TabIndex = 2;
+            this.lblAddress.Text = "Địa chỉ:";
             // 
-            // txtAddress
+            // lblDOB
             // 
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(102, 94);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(339, 20);
-            this.txtAddress.TabIndex = 7;
+            this.lblDOB.AutoSize = true;
+            this.lblDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDOB.ForeColor = System.Drawing.Color.Black;
+            this.lblDOB.Location = new System.Drawing.Point(6, 67);
+            this.lblDOB.Name = "lblDOB";
+            this.lblDOB.Size = new System.Drawing.Size(67, 13);
+            this.lblDOB.TabIndex = 1;
+            this.lblDOB.Text = "Ngày sinh:";
             // 
-            // txtName
+            // lblCode
             // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(394, 33);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 20);
-            this.txtName.TabIndex = 8;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.radFemale);
-            this.panel2.Controls.Add(this.radMale);
-            this.panel2.Location = new System.Drawing.Point(394, 61);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 23);
-            this.panel2.TabIndex = 9;
-            // 
-            // radMale
-            // 
-            this.radMale.AutoSize = true;
-            this.radMale.ForeColor = System.Drawing.Color.Black;
-            this.radMale.Location = new System.Drawing.Point(26, 3);
-            this.radMale.Name = "radMale";
-            this.radMale.Size = new System.Drawing.Size(50, 17);
-            this.radMale.TabIndex = 0;
-            this.radMale.TabStop = true;
-            this.radMale.Text = "Nam";
-            this.radMale.UseVisualStyleBackColor = true;
-            // 
-            // radFemale
-            // 
-            this.radFemale.AutoSize = true;
-            this.radFemale.ForeColor = System.Drawing.Color.Black;
-            this.radFemale.Location = new System.Drawing.Point(108, 3);
-            this.radFemale.Name = "radFemale";
-            this.radFemale.Size = new System.Drawing.Size(41, 17);
-            this.radFemale.TabIndex = 1;
-            this.radFemale.TabStop = true;
-            this.radFemale.Text = "Nữ";
-            this.radFemale.UseVisualStyleBackColor = true;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.Color.Red;
-            this.btnNew.Location = new System.Drawing.Point(10, 6);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(80, 25);
-            this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "Mới";
-            this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.Red;
-            this.btnAdd.Location = new System.Drawing.Point(91, 6);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(80, 25);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnModify
-            // 
-            this.btnModify.BackColor = System.Drawing.SystemColors.Control;
-            this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModify.ForeColor = System.Drawing.Color.Red;
-            this.btnModify.Location = new System.Drawing.Point(173, 6);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(80, 25);
-            this.btnModify.TabIndex = 2;
-            this.btnModify.Text = "Sửa";
-            this.btnModify.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.Red;
-            this.btnUpdate.Location = new System.Drawing.Point(254, 6);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(80, 25);
-            this.btnUpdate.TabIndex = 3;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.Control;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(335, 6);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(80, 25);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.Red;
-            this.btnExit.Location = new System.Drawing.Point(416, 6);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(80, 25);
-            this.btnExit.TabIndex = 5;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = false;
+            this.lblCode.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.lblCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCode.ForeColor = System.Drawing.Color.Black;
+            this.lblCode.Location = new System.Drawing.Point(6, 36);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(100, 23);
+            this.lblCode.TabIndex = 0;
+            this.lblCode.Text = "Mã khách hàng:";
             // 
             // panel3
             // 
@@ -305,6 +310,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(628, 219);
             this.panel3.TabIndex = 3;
+            // 
+            // dataGridCustomer
+            // 
+            this.dataGridCustomer.AllowUserToAddRows = false;
+            this.dataGridCustomer.AllowUserToDeleteRows = false;
+            this.dataGridCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCustomer.Location = new System.Drawing.Point(36, 39);
+            this.dataGridCustomer.Name = "dataGridCustomer";
+            this.dataGridCustomer.ReadOnly = true;
+            this.dataGridCustomer.Size = new System.Drawing.Size(558, 168);
+            this.dataGridCustomer.TabIndex = 1;
+            this.dataGridCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCustomer_CellClick);
             // 
             // lblListView
             // 
@@ -316,14 +333,6 @@
             this.lblListView.Size = new System.Drawing.Size(157, 15);
             this.lblListView.TabIndex = 0;
             this.lblListView.Text = "Danh sách khách hàng:";
-            // 
-            // dataGridCustomer
-            // 
-            this.dataGridCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCustomer.Location = new System.Drawing.Point(36, 39);
-            this.dataGridCustomer.Name = "dataGridCustomer";
-            this.dataGridCustomer.Size = new System.Drawing.Size(549, 168);
-            this.dataGridCustomer.TabIndex = 1;
             // 
             // CustormerManage
             // 
@@ -337,6 +346,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "CustormerManage";
             this.Text = "KHÁCH HÀNG";
+            this.Load += new System.EventHandler(this.CustormerManage_Load);
             this.panel1.ResumeLayout(false);
             this.groupBoxInfor.ResumeLayout(false);
             this.groupBoxInfor.PerformLayout();

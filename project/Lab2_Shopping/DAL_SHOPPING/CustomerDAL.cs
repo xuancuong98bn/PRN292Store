@@ -9,11 +9,11 @@ namespace DAL_SHOPPING
 {
     public static class CustomerDAL
     {
-
+        private static string TableName = "tblCustomer";
         public static List<Customer> Load()
         {
             List<Customer> list = new List<Customer>();
-            DataTable dt = DataAccess.SelectTable("tblCustomer");
+            DataTable dt = DataAccess.SelectTable(TableName);
             foreach (DataRow item in dt.Rows)
             {
                 object[] row = item.ItemArray;
@@ -26,6 +26,28 @@ namespace DAL_SHOPPING
                 list.Add(c);
             }
             return list;
+        }
+
+        public static DataTable GetTable()
+        {
+            return DataAccess.SelectTable("tblCustomer");
+        }
+
+        public static Customer Search(string code)
+        {
+            Customer customer = null;
+            //code = code.Trim();
+            DataTable dt = DataAccess.ExecuteQuery("SELECT * FROM " + TableName + " WHERE Code = '" + code + "'");
+            if (dt.Rows.Count != 0)
+            {
+                object[] row = dt.Rows[0].ItemArray;
+                string name = row[1].ToString();
+                bool gender = Convert.ToBoolean(row[2]);
+                string address = row[3].ToString();
+                DateTime DOB = Convert.ToDateTime(row[4]);
+                customer = new Customer(code, name, gender, address, DOB);
+            }
+            return customer;
         }
     }
 }

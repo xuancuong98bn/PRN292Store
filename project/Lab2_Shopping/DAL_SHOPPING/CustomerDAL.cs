@@ -7,16 +7,16 @@ using System.Text;
 
 namespace DAL_SHOPPING
 {
-    public class CustomerDAL
+    public static class CustomerDAL
     {
 
-        public List<Customer> Load()
+        public static List<Customer> Load()
         {
             List<Customer> list = new List<Customer>();
             DataTable dt = DataAccess.SelectTable("tblCustomer");
             foreach (DataRow item in dt.Rows)
             {
-                Object[] row = item.ItemArray;
+                object[] row = item.ItemArray;
                 string code = row[0].ToString();
                 string name = row[1].ToString();
                 bool gender = Convert.ToBoolean(row[2]);

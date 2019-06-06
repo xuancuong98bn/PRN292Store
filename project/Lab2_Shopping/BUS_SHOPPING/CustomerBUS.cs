@@ -9,11 +9,10 @@ namespace BUS_SHOPPING
 {
     public class CustomerBUS
     {
-        CustomerDAL customer = new CustomerDAL();
 
         public void LoadGridView(DataGridView dataGrid)
         {
-            dataGrid.DataSource = customer.Load();
+            dataGrid.DataSource = CustomerDAL.Load();
         }
     }
 }

@@ -49,5 +49,23 @@ namespace DAL_SHOPPING
             }
             return customer;
         }
+
+        public static bool Insert(Customer c)
+        {
+            string sql = @"INSERT INTO tblCustomer VALUES('" + c.Code + "', '" + c.Name + "', " + (c.Gender?1:0) + ", '" + c.Address + "', '" + c.Dob + "')";
+            return DataAccess.ExecuteNonQuery(sql);
+        }
+
+        public static bool Update(Customer c)
+        {
+            string sql = @"UPDATE tblCustomer SET Name = '" + c.Name + "', Gender = " + (c.Gender ? 1 : 0) + ", Address = '" + c.Address + "', DOB = '" + c.Dob + "' WHERE code = '" + c.Code + "'";
+            return DataAccess.ExecuteNonQuery(sql);
+        }
+
+        public static bool Delete(string code)
+        {
+            string sql = @"DELETE FROM tblCustomer WHERE code = '" + code + "'";
+            return DataAccess.ExecuteNonQuery(sql);
+        }
     }
 }

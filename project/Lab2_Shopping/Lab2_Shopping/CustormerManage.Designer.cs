@@ -95,6 +95,7 @@
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnDelete
             // 
@@ -107,10 +108,12 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.SystemColors.Control;
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Red;
             this.btnUpdate.Location = new System.Drawing.Point(254, 6);
@@ -119,6 +122,7 @@
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnModify
             // 
@@ -131,10 +135,12 @@
             this.btnModify.TabIndex = 2;
             this.btnModify.Text = "Sửa";
             this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.Enabled = false;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Red;
             this.btnAdd.Location = new System.Drawing.Point(91, 6);
@@ -143,6 +149,7 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnNew
             // 
@@ -346,6 +353,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "CustormerManage";
             this.Text = "KHÁCH HÀNG";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustormerManage_FormClosed);
             this.Load += new System.EventHandler(this.CustormerManage_Load);
             this.panel1.ResumeLayout(false);
             this.groupBoxInfor.ResumeLayout(false);

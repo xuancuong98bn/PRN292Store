@@ -37,6 +37,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.groupBoxInfor = new System.Windows.Forms.GroupBox();
+            this.comboUnit = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtCode = new System.Windows.Forms.TextBox();
@@ -47,7 +48,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridProduct = new System.Windows.Forms.DataGridView();
             this.lblListView = new System.Windows.Forms.Label();
-            this.comboUnit = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBoxInfor.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -170,6 +170,14 @@
             this.groupBoxInfor.TabStop = false;
             this.groupBoxInfor.Text = "Thông tin mặt hàng cập nhật";
             // 
+            // comboUnit
+            // 
+            this.comboUnit.FormattingEnabled = true;
+            this.comboUnit.Location = new System.Drawing.Point(397, 32);
+            this.comboUnit.Name = "comboUnit";
+            this.comboUnit.Size = new System.Drawing.Size(153, 21);
+            this.comboUnit.TabIndex = 9;
+            // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -265,14 +273,6 @@
             this.lblListView.Size = new System.Drawing.Size(143, 15);
             this.lblListView.TabIndex = 0;
             this.lblListView.Text = "Danh sách mặt hàng:";
-            // 
-            // comboUnit
-            // 
-            this.comboUnit.FormattingEnabled = true;
-            this.comboUnit.Location = new System.Drawing.Point(397, 32);
-            this.comboUnit.Name = "comboUnit";
-            this.comboUnit.Size = new System.Drawing.Size(153, 21);
-            this.comboUnit.TabIndex = 9;
             // 
             // ProductManage
             // 

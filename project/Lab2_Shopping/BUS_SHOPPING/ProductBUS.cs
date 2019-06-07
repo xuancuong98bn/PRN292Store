@@ -18,6 +18,14 @@ namespace BUS_SHOPPING
             dataGrid.DataSource = data;
         }
 
+        public void LoadComboBox(ComboBox comboBox)
+        {
+            DataTable data = ProductDAL.GetTable();
+            comboBox.DataSource = data;
+            comboBox.DisplayMember = "Name";
+            comboBox.ValueMember = "Code";
+        }
+
         public Product GetFirstProduct(DataGridView dataGrid)
         {
             Product p = null;
@@ -26,6 +34,12 @@ namespace BUS_SHOPPING
                 string code = dataGrid.Rows[0].Cells["Code"].Value.ToString();
                 p = ProductDAL.Search(code);
             }
+            return p;
+        }
+
+        public Product Search(string code)
+        {
+            Product p = ProductDAL.Search(code);
             return p;
         }
 

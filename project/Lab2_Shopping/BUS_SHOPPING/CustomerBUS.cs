@@ -30,6 +30,12 @@ namespace BUS_SHOPPING
             return c;
         }
 
+        public Customer Search(TextBox text)
+        {
+            Customer c = CustomerDAL.Search(text.Text);
+            return c;
+        }
+
         public bool Insert(string code, string name, bool gender, string dob, string address)
         {
             if (!CheckCode(code))

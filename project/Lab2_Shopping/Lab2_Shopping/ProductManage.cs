@@ -163,5 +163,10 @@ namespace Lab2_Shopping
                 Close();
             }
         }
+
+        private void ProductManage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.OpenForms[1].Show();
+        }
     }
 }

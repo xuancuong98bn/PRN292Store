@@ -367,6 +367,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "BillManage";
             this.Text = "KHÁCH HÀNG";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BillManage_FormClosed);
             this.Load += new System.EventHandler(this.BillManage_Load);
             this.groupBoxInfor.ResumeLayout(false);
             this.groupBoxInfor.PerformLayout();

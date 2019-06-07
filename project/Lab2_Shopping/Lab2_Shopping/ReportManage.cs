@@ -15,5 +15,19 @@ namespace Lab2_Shopping
         {
             InitializeComponent();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                Close();
+            }
+        }
+
+        private void ReportManage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.OpenForms[1].Show();
+        }
     }
 }

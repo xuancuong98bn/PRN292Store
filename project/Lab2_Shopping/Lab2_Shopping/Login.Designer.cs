@@ -88,14 +88,14 @@
             // 
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnOK);
-            this.panel2.Location = new System.Drawing.Point(224, 169);
+            this.panel2.Location = new System.Drawing.Point(219, 163);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(208, 29);
+            this.panel2.Size = new System.Drawing.Size(213, 35);
             this.panel2.TabIndex = 1;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(103, 3);
+            this.btnCancel.Location = new System.Drawing.Point(108, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(95, 23);
             this.btnCancel.TabIndex = 1;
@@ -106,7 +106,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(3, 3);
+            this.btnOK.Location = new System.Drawing.Point(8, 6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(94, 23);
             this.btnOK.TabIndex = 0;
@@ -118,6 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Lab2_Shopping.Properties.Resources.loginbg;
             this.ClientSize = new System.Drawing.Size(440, 208);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

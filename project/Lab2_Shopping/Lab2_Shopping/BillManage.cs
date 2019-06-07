@@ -140,7 +140,16 @@ namespace Lab2_Shopping
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                Close();
+            }
+        }
+
+        private void BillManage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.OpenForms[1].Show();
         }
     }
 }

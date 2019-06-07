@@ -302,6 +302,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "ProductManage";
             this.Text = "MẶT HÀNG";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductManage_FormClosed);
             this.Load += new System.EventHandler(this.ProductManage_Load);
             this.panel1.ResumeLayout(false);
             this.groupBoxInfor.ResumeLayout(false);

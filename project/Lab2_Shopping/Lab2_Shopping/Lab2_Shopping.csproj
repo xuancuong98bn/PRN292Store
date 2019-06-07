@@ -107,6 +107,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config">
       <SubType>Designer</SubType>
@@ -130,6 +131,12 @@
       <Project>{f4281b92-cd47-4439-b1e5-a5b5a3022c4a}</Project>
       <Name>DTL_SHOPPING</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="loginbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mainbg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

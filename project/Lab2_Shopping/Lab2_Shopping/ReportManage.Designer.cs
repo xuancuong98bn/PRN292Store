@@ -70,6 +70,7 @@
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnPrint
             // 
@@ -220,6 +221,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "ReportManage";
             this.Text = "MẶT HÀNG";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReportManage_FormClosed);
             this.groupBoxInfor.ResumeLayout(false);
             this.groupBoxInfor.PerformLayout();
             this.panel3.ResumeLayout(false);

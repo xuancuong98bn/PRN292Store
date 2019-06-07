@@ -90,6 +90,7 @@
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnDelete
             // 
@@ -102,6 +103,7 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -114,6 +116,7 @@
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnModify
             // 
@@ -126,6 +129,7 @@
             this.btnModify.TabIndex = 2;
             this.btnModify.Text = "Sửa";
             this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnAdd
             // 
@@ -138,6 +142,7 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnNew
             // 
@@ -150,6 +155,7 @@
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Mới";
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // groupBoxInfor
             // 
@@ -172,7 +178,13 @@
             // 
             // comboUnit
             // 
+            this.comboUnit.Enabled = false;
             this.comboUnit.FormattingEnabled = true;
+            this.comboUnit.Items.AddRange(new object[] {
+            "Chiec",
+            "Con",
+            "Cai",
+            "Thanh"});
             this.comboUnit.Location = new System.Drawing.Point(397, 32);
             this.comboUnit.Name = "comboUnit";
             this.comboUnit.Size = new System.Drawing.Size(153, 21);
@@ -180,6 +192,7 @@
             // 
             // txtName
             // 
+            this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(102, 68);
             this.txtName.Name = "txtName";
@@ -188,6 +201,7 @@
             // 
             // txtPrice
             // 
+            this.txtPrice.Enabled = false;
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.Location = new System.Drawing.Point(397, 68);
             this.txtPrice.Name = "txtPrice";
@@ -196,6 +210,7 @@
             // 
             // txtCode
             // 
+            this.txtCode.Enabled = false;
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCode.Location = new System.Drawing.Point(102, 33);
             this.txtCode.Name = "txtCode";
@@ -262,6 +277,7 @@
             this.dataGridProduct.Name = "dataGridProduct";
             this.dataGridProduct.Size = new System.Drawing.Size(549, 168);
             this.dataGridProduct.TabIndex = 1;
+            this.dataGridProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellClick);
             // 
             // lblListView
             // 
@@ -286,6 +302,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "ProductManage";
             this.Text = "MẶT HÀNG";
+            this.Load += new System.EventHandler(this.ProductManage_Load);
             this.panel1.ResumeLayout(false);
             this.groupBoxInfor.ResumeLayout(false);
             this.groupBoxInfor.PerformLayout();

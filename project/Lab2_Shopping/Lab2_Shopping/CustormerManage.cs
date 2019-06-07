@@ -118,6 +118,7 @@ namespace Lab2_Shopping
                     MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     custormer.LoadGridView(dataGridCustomer);
                     SetEnableButton(true, false, false, true, true);
+                    txtCode.Enabled = false;
                 }
                 else
                 {

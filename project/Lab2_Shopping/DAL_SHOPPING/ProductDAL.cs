@@ -31,6 +31,18 @@ namespace DAL_SHOPPING
             return DataAccess.SelectTable(TableName);
         }
 
+        public static DataTable AdvancedSearch(string code, string dateForm, string dateTo)
+        {
+            string sql = @"SELECT        tblProduct.Code, tblProduct.Name, tblProduct.Unit, tblProduct.Price, tblDetailBill.Quantity, tblCustomer.Name AS Customer, tblBill.DateBuy
+                            FROM            tblBill INNER JOIN
+                                             tblCustomer ON tblBill.CustomerCode = tblCustomer.Code INNER JOIN
+                                             tblDetailBill ON tblBill.Code = tblDetailBill.BillCode INNER JOIN
+                                             tblProduct ON tblDetailBill.ProductCode = tblProduct.Code
+                        WHERE tblProduct.Code = '" + code + "' AND tblBill.DateBuy > '" + dateForm + "' AND tblBill.DateBuy < '" + dateTo + "'";
+            DataTable dt = DataAccess.ExecuteQuery(sql);
+            return dt;
+        }
+
         public static Product Search(string code)
         {
             Product product = null;

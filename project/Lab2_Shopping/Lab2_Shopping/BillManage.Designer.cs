@@ -349,6 +349,7 @@
             // 
             // comProductName
             // 
+            this.comProductName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comProductName.FormattingEnabled = true;
             this.comProductName.Location = new System.Drawing.Point(115, 49);
             this.comProductName.Name = "comProductName";

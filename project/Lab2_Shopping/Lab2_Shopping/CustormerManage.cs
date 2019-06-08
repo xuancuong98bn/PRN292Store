@@ -105,6 +105,7 @@ namespace Lab2_Shopping
         private void btnNew_Click(object sender, EventArgs e)
         {
             EmptyTextBox();
+            txtDOB.Text = DateTime.Now.ToString();
             SetEnableButton(true, true, false, false, false);
         }
 
@@ -175,7 +176,7 @@ namespace Lab2_Shopping
 
         private void CustormerManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[1].Show();
+            //Application.OpenForms[1].Show();
         }
     }
 }

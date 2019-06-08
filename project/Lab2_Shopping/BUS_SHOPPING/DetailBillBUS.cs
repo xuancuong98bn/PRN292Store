@@ -19,8 +19,16 @@ namespace BUS_SHOPPING
 
         public List<DetailBill> Search(TextBox text)
         {
-            int code = Convert.ToInt32(text.Text);
-            List<DetailBill> list = DetailBillDAL.Select(code);
+
+            List<DetailBill> list = new List<DetailBill>();
+            try
+            {
+                int code = Convert.ToInt32(text.Text);
+                list = DetailBillDAL.Select(code);
+            } catch (Exception ex)
+            {
+                //do nothing
+            }
             return list;
         }
 

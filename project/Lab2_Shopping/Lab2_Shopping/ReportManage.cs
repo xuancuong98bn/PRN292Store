@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS_SHOPPING;
+using DTL_SHOPPING;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +13,7 @@ namespace Lab2_Shopping
 {
     public partial class ReportManage : Form
     {
+        ProductBUS product = new ProductBUS();
         public ReportManage()
         {
             InitializeComponent();
@@ -28,6 +31,22 @@ namespace Lab2_Shopping
         private void ReportManage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.OpenForms[1].Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dataGridProduct.DataSource = product.AdvanceSearch(comboBillCode.SelectedValue.ToString(), txtFrom.Text, txtTo.Text);
+        }
+
+        private void ReportManage_Load(object sender, EventArgs e)
+        {
+            product.LoadComboBoxStyle2(comboBillCode);
+        }
+
+        private void comboBillCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Product p = product.Search(comboBillCode.Text);
+            txtNameProduct.Text = p.Name;
         }
     }
 }

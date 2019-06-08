@@ -89,12 +89,13 @@
             this.btnSearch.BackColor = System.Drawing.SystemColors.Control;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Red;
-            this.btnSearch.Location = new System.Drawing.Point(516, 69);
+            this.btnSearch.Location = new System.Drawing.Point(516, 67);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(80, 25);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // groupBoxInfor
             // 
@@ -123,6 +124,7 @@
             this.comboBillCode.Name = "comboBillCode";
             this.comboBillCode.Size = new System.Drawing.Size(153, 21);
             this.comboBillCode.TabIndex = 9;
+            this.comboBillCode.SelectedIndexChanged += new System.EventHandler(this.comboBillCode_SelectedIndexChanged);
             // 
             // txtFrom
             // 
@@ -143,8 +145,9 @@
             // txtNameProduct
             // 
             this.txtNameProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameProduct.Location = new System.Drawing.Point(397, 36);
+            this.txtNameProduct.Location = new System.Drawing.Point(397, 33);
             this.txtNameProduct.Name = "txtNameProduct";
+            this.txtNameProduct.ReadOnly = true;
             this.txtNameProduct.Size = new System.Drawing.Size(199, 20);
             this.txtNameProduct.TabIndex = 5;
             // 
@@ -222,6 +225,7 @@
             this.Name = "ReportManage";
             this.Text = "MẶT HÀNG";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReportManage_FormClosed);
+            this.Load += new System.EventHandler(this.ReportManage_Load);
             this.groupBoxInfor.ResumeLayout(false);
             this.groupBoxInfor.PerformLayout();
             this.panel3.ResumeLayout(false);

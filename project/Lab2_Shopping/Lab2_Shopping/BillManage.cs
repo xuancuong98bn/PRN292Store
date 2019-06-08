@@ -60,6 +60,11 @@ namespace Lab2_Shopping
                 txtCustomerName.Text = c.Name;
                 txtAddress.Text = c.Address;
             }
+            else
+            {
+                txtCustomerName.Text = "";
+                txtAddress.Text = "";
+            }
         }
 
         private void comProductName_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,12 +79,8 @@ namespace Lab2_Shopping
 
         private void txtBillCode_TextChanged(object sender, EventArgs e)
         {
-            List<DetailBill> list = new List<DetailBill>();
-            if (txtBillCode.Text != "")
-            {
-                list = detailBill.Search(txtBillCode);
-            }
-            if (list.Count == 0)
+            Bill b = bill.Search(txtBillCode);
+            if (b == null)
             {
                 btnBuy.Enabled = true;
                 btnModify.Enabled = false;
@@ -89,12 +90,18 @@ namespace Lab2_Shopping
             }
             else
             {
+                List<DetailBill> list = detailBill.Search(txtBillCode);
                 btnBuy.Enabled = false;
                 btnModify.Enabled = true;
                 btnDelete.Enabled = true;
                 dataGridBill.DataSource = list;
-                Bill b = bill.Search(txtBillCode);
                 txtDateBuy.Text = b.DateBuy.ToShortDateString();
+            }
+            if (txtBillCode.Text == "")
+            {
+                btnBuy.Enabled = false;
+                btnModify.Enabled = false;
+                btnDelete.Enabled = false;
             }
         }
 
@@ -149,7 +156,7 @@ namespace Lab2_Shopping
 
         private void BillManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[1].Show();
+            //Application.OpenForms[1].Show();
         }
     }
 }

@@ -108,6 +108,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.SystemColors.Control;
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Red;
             this.btnUpdate.Location = new System.Drawing.Point(254, 6);
@@ -134,6 +135,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.Enabled = false;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Red;
             this.btnAdd.Location = new System.Drawing.Point(91, 6);
@@ -178,6 +180,7 @@
             // 
             // comboUnit
             // 
+            this.comboUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboUnit.Enabled = false;
             this.comboUnit.FormattingEnabled = true;
             this.comboUnit.Items.AddRange(new object[] {
@@ -272,9 +275,12 @@
             // 
             // dataGridProduct
             // 
+            this.dataGridProduct.AllowUserToAddRows = false;
+            this.dataGridProduct.AllowUserToDeleteRows = false;
             this.dataGridProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProduct.Location = new System.Drawing.Point(36, 39);
             this.dataGridProduct.Name = "dataGridProduct";
+            this.dataGridProduct.ReadOnly = true;
             this.dataGridProduct.Size = new System.Drawing.Size(549, 168);
             this.dataGridProduct.TabIndex = 1;
             this.dataGridProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellClick);

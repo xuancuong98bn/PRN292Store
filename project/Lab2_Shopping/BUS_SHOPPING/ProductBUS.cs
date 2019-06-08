@@ -26,6 +26,14 @@ namespace BUS_SHOPPING
             comboBox.ValueMember = "Code";
         }
 
+        public void LoadComboBoxStyle2(ComboBox comboBox)
+        {
+            DataTable data = ProductDAL.GetTable();
+            comboBox.DataSource = data;
+            comboBox.DisplayMember = "Code";
+            comboBox.ValueMember = "Code";
+        }
+
         public Product GetFirstProduct(DataGridView dataGrid)
         {
             Product p = null;
@@ -43,26 +51,48 @@ namespace BUS_SHOPPING
             return p;
         }
 
-        public bool Insert(string code, string name, string unit, string price)
+        public DataTable AdvanceSearch(string code, string dateForm, string dateTo)
         {
-            double Price = 0;
             try
             {
-                Price = Convert.ToDouble(price);
+                DateTime DateFrom = Convert.ToDateTime(dateForm);
+                DateTime DateTo = Convert.ToDateTime(dateTo);
+                return ProductDAL.AdvancedSearch(code, dateForm, dateTo);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Giá không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                MessageBox.Show("Sai định dạng thời gian", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return new DataTable();
             }
-            if (ProductDAL.Search(code) == null)
+        }
+
+        public bool Insert(string code, string name, string unit, string price)
+        {
+            if (!CheckCode(code))
             {
-                Product c = new Product(code, Normalization(name), unit, Price);
-                return ProductDAL.Insert(c);
+                MessageBox.Show("Mã sản phẩm sai định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Mã sản phẩm bị trùng lặp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                double Price = 0;
+                try
+                {
+                    Price = Convert.ToDouble(price);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Giá không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                if (ProductDAL.Search(code) == null)
+                {
+                    Product c = new Product(code, Normalization(name), unit, Price);
+                    return ProductDAL.Insert(c);
+                }
+                else
+                {
+                    MessageBox.Show("Mã sản phẩm bị trùng lặp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             return false;
         }
@@ -95,7 +125,7 @@ namespace BUS_SHOPPING
         private static bool CheckCode(string code)
         {
             code = code.Trim();
-            return Regex.IsMatch(code, @"^\w{1}\d{2}$");
+            return Regex.IsMatch(code, @"^\w\d{2}$");
         }
 
         public static string Normalization(string str)

@@ -7,7 +7,6 @@ namespace DTL_SHOPPING
 {
     public class DetailBill
     {
-        public int Code { get; set; }
         public int BillCode { get; set; }
         public string ProductCode { get; set; }
         public int Quantity { get; set; }
@@ -17,9 +16,8 @@ namespace DTL_SHOPPING
 
         }
 
-        public DetailBill(int code, int billCode, string productCode, int quantity)
+        public DetailBill(int billCode, string productCode, int quantity)
         {
-            Code = code;
             BillCode = billCode;
             ProductCode = productCode;
             Quantity = quantity;

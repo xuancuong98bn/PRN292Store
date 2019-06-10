@@ -1,5 +1,6 @@
 ﻿using BUS_SHOPPING;
 using DTL_SHOPPING;
+using SERVICE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,13 +26,7 @@ namespace Lab2_Shopping
         private void BillManage_Load(object sender, EventArgs e)
         {
             product.LoadComboBox(comProductName);
-            comProductName.SelectedIndex = 0;
             FillPrice();
-        }
-        private void SetEnableTextBox(bool status)
-        {
-            txtCustomerName.Enabled = status;
-            txtAddress.Enabled = status;
         }
 
         private void EmptyTextBox()
@@ -41,6 +36,42 @@ namespace Lab2_Shopping
             txtAddress.Text = "";
             txtBillCode.Text = "";
             txtDateBuy.Text = "";
+        }
+
+        private bool CheckInput()
+        {
+            if (Service.IsEmptyControl(txtCustomerCode, lblCode.Text))
+            {
+                return false;
+            }
+            if (customer.Search(txtCustomerCode.Text) == null)
+            {
+                MessageBox.Show("Người dùng không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            if (Service.IsEmptyControl(txtDateBuy, lblBillDate.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void btnBuy_Click(object sender, EventArgs e)
+        {
+            if (CheckInput())
+            {
+                if (bill.Insert(txtCustomerCode.Text, txtDateBuy.Text))
+                {
+                    MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var list = detailBill.AdvancedSearch(txtBillCode.Text);
+                    SetEnableButton(false, true, true);
+                    dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm hóa đơn thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void FillPrice()
@@ -54,7 +85,7 @@ namespace Lab2_Shopping
 
         private void txtCustomerCode_TextChanged(object sender, EventArgs e)
         {
-            Customer c = customer.Search(txtCustomerCode);
+            Customer c = customer.Search(txtCustomerCode.Text);
             if (c != null)
             {
                 txtCustomerName.Text = c.Name;
@@ -77,37 +108,42 @@ namespace Lab2_Shopping
             EmptyTextBox();
         }
 
+        private void SetEnableButton(bool b1, bool b2, bool b3)
+        {
+            btnBuy.Enabled = b1;
+            btnModify.Enabled = b2;
+            btnDelete.Enabled = b3;
+        }
+
         private void txtBillCode_TextChanged(object sender, EventArgs e)
         {
-            Bill b = bill.Search(txtBillCode);
-            if (b == null)
+            if (txtBillCode.Text == "")
             {
-                btnBuy.Enabled = true;
-                btnModify.Enabled = false;
-                btnDelete.Enabled = false;
+                SetEnableButton(false, false, false);
                 dataGridBill.DataSource = "";
                 txtDateBuy.Text = "";
             }
             else
             {
-                List<DetailBill> list = detailBill.Search(txtBillCode);
-                btnBuy.Enabled = false;
-                btnModify.Enabled = true;
-                btnDelete.Enabled = true;
-                dataGridBill.DataSource = list;
-                txtDateBuy.Text = b.DateBuy.ToShortDateString();
-            }
-            if (txtBillCode.Text == "")
-            {
-                btnBuy.Enabled = false;
-                btnModify.Enabled = false;
-                btnDelete.Enabled = false;
+                Bill b = bill.Search(txtBillCode.Text);
+                if (b == null)
+                {
+                    SetEnableButton(true, false, false);
+                    dataGridBill.DataSource = "";
+                    txtDateBuy.Text = DateTime.Now.ToShortDateString();
+                }
+                else
+                {
+                    SetEnableButton(false, true, true);
+                    dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
+                    txtDateBuy.Text = b.DateBuy.ToShortDateString();
+                }
             }
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if (detailBill.SearchDetail(txtBillCode, comProductName.SelectedValue.ToString()) != null)
+            if (detailBill.SearchDetail(txtBillCode.Text, comProductName.SelectedValue.ToString()) != null)
             {
                 if (detailBill.Update(txtBillCode.Text, comProductName.SelectedValue.ToString(), txtQuantity.Text))
                 {
@@ -129,19 +165,28 @@ namespace Lab2_Shopping
                     MessageBox.Show("Thêm sản phẩm thất bại", "Thông báo", MessageBoxButtons.OK);
                 }
             }
+            dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (detailBill.Delete(txtBillCode.Text, comProductName.SelectedValue.ToString()))
+            DetailBill detail = detailBill.SearchDetail(txtBillCode.Text, comProductName.SelectedValue.ToString());
+            if (detail != null)
             {
-                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                var list = detailBill.Search(txtBillCode);
-                dataGridBill.DataSource = list;
+                if (detailBill.Delete(txtBillCode.Text, comProductName.SelectedValue.ToString()))
+                {
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var list = detailBill.AdvancedSearch(txtBillCode.Text);
+                    dataGridBill.DataSource = list;
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sản phẩm không tồn tại trong hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -158,5 +203,7 @@ namespace Lab2_Shopping
         {
             //Application.OpenForms[1].Show();
         }
+
+        
     }
 }

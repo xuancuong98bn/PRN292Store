@@ -1,5 +1,6 @@
 ﻿using DAL_SHOPPING;
 using DTL_SHOPPING;
+using SERVICE;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -68,7 +69,7 @@ namespace BUS_SHOPPING
 
         public bool Insert(string code, string name, string unit, string price)
         {
-            if (!CheckCode(code))
+            if (!Service.CheckCode(code))
             {
                 MessageBox.Show("Mã sản phẩm sai định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -86,7 +87,7 @@ namespace BUS_SHOPPING
                 }
                 if (ProductDAL.Search(code) == null)
                 {
-                    Product c = new Product(code, Normalization(name), unit, Price);
+                    Product c = new Product(code, Service.Normalization(name), unit, Price);
                     return ProductDAL.Insert(c);
                 }
                 else
@@ -113,44 +114,13 @@ namespace BUS_SHOPPING
                 MessageBox.Show("Giá không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            Product c = new Product(code, Normalization(name), unit, Price);
+            Product c = new Product(code, Service.Normalization(name), unit, Price);
             return ProductDAL.Update(c);
         }
 
         public bool Delete(string code)
         {
             return ProductDAL.Delete(code);
-        }
-
-        private static bool CheckCode(string code)
-        {
-            code = code.Trim();
-            return Regex.IsMatch(code, @"^\w\d{2}$");
-        }
-
-        public static string Normalization(string str)
-        {
-            string[] subStr = Regex.Replace(str, @"\s+", " ").Trim().ToLower().Split(' ');
-            return Concat(subStr, true);
-        }
-
-        public static string Concat(string[] subStr, bool upperFirst = false)
-        {
-            string str = "";
-            for (int i = 0; i < subStr.Length; i++)
-            {
-                if (upperFirst)
-                {
-                    string s = subStr[i];
-                    s = s.Substring(0, 1).ToUpper() + s.Substring(1);
-                    str += s + " ";
-                }
-                else
-                {
-                    str += subStr[i] + " ";
-                }
-            }
-            return str;
         }
     }
 }

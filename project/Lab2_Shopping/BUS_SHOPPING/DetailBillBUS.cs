@@ -17,13 +17,13 @@ namespace BUS_SHOPPING
             dataGrid.DataSource = data;
         }
 
-        public List<DetailBill> Search(TextBox text)
+        public List<DetailBill> Search(string text)
         {
 
             List<DetailBill> list = new List<DetailBill>();
             try
             {
-                int code = Convert.ToInt32(text.Text);
+                int code = Convert.ToInt32(text);
                 list = DetailBillDAL.Select(code);
             } catch (Exception ex)
             {
@@ -32,11 +32,24 @@ namespace BUS_SHOPPING
             return list;
         }
 
-        public DetailBill SearchDetail(TextBox bill, string product)
+        public DataTable AdvancedSearch(string text)
         {
             try
             {
-                int billCode = Convert.ToInt32(bill.Text);
+                int code = Convert.ToInt32(text);
+                return DetailBillDAL.AdvancedSearch(code);
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+
+        public DetailBill SearchDetail(string bill, string product)
+        {
+            try
+            {
+                int billCode = Convert.ToInt32(bill);
                 DetailBill c = DetailBillDAL.Search(billCode, product);
                 return c;
             }
@@ -51,10 +64,8 @@ namespace BUS_SHOPPING
         {
             int BillCode = 0;
             int Quantity = 0;
-            int code = 0;
             try
             {
-                code = DetailBillDAL.Size() + 1;
                 BillCode = Convert.ToInt32(billCode);
                 Quantity = Convert.ToInt32(quantity);
             }
@@ -63,7 +74,7 @@ namespace BUS_SHOPPING
                 MessageBox.Show("Số lượng không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            DetailBill c = new DetailBill(code, BillCode, ProductCode, Quantity);
+            DetailBill c = new DetailBill(BillCode, ProductCode, Quantity);
             return DetailBillDAL.Insert(c);
         }
 
@@ -71,7 +82,6 @@ namespace BUS_SHOPPING
         {
             int BillCode = 0;
             int Quantity = 0;
-            int code = 0;
             try
             {
                 BillCode = Convert.ToInt32(billCode);
@@ -82,7 +92,7 @@ namespace BUS_SHOPPING
                 MessageBox.Show("Số lượng không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            DetailBill c = new DetailBill(code, BillCode, ProductCode, Quantity);
+            DetailBill c = new DetailBill(BillCode, ProductCode, Quantity);
             return DetailBillDAL.Update(c);
         }
 

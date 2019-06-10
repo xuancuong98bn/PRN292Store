@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTL_SHOPPING", "DTL_SHOPPIN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS_SHOPPING", "BUS_SHOPPING\BUS_SHOPPING.csproj", "{F42589CA-8A3E-4252-A0B3-1206F024DB66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SERVICE", "SERVICE\SERVICE.csproj", "{31CDC31F-58EF-4B77-B2FF-3986CFD48B24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F42589CA-8A3E-4252-A0B3-1206F024DB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F42589CA-8A3E-4252-A0B3-1206F024DB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F42589CA-8A3E-4252-A0B3-1206F024DB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CDC31F-58EF-4B77-B2FF-3986CFD48B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CDC31F-58EF-4B77-B2FF-3986CFD48B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CDC31F-58EF-4B77-B2FF-3986CFD48B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CDC31F-58EF-4B77-B2FF-3986CFD48B24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

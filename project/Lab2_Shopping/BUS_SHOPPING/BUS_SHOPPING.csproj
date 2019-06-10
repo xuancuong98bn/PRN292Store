@@ -84,6 +84,10 @@
       <Project>{F4281B92-CD47-4439-B1E5-A5B5A3022C4A}</Project>
       <Name>DTL_SHOPPING</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SERVICE\SERVICE.csproj">
+      <Project>{31cdc31f-58ef-4b77-b2ff-3986cfd48b24}</Project>
+      <Name>SERVICE</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

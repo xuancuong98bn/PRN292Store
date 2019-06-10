@@ -13,7 +13,7 @@ namespace DAL_SHOPPING
         public static string connectionString;
         public static string dbName = "PRN292_SHOPPING";
         static SqlConnection conn;
-        static SqlDataAdapter da;
+        //static SqlDataAdapter da;
         static SqlCommand cmd;
         //public string connectionStringRaw = @"Data Source = DESKTOP - UDI1P6F\SQLEXPRESS;Initial Catalog = ManagerPRN292; user id = sa; password=123456";
 

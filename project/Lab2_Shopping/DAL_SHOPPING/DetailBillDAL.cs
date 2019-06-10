@@ -17,11 +17,10 @@ namespace DAL_SHOPPING
             foreach (DataRow item in dt.Rows)
             {
                 object[] row = item.ItemArray;
-                int code = Convert.ToInt32(row[0]);
-                int billCode = Convert.ToInt32(row[1]);
-                string productCode = row[2].ToString();
-                int quantity = Convert.ToInt32(row[3]);
-                DetailBill c = new DetailBill(code, billCode, productCode, quantity);
+                int billCode = Convert.ToInt32(row[0]);
+                string productCode = row[1].ToString();
+                int quantity = Convert.ToInt32(row[2]);
+                DetailBill c = new DetailBill(billCode, productCode, quantity);
                 list.Add(c);
             }
             return list;
@@ -38,10 +37,9 @@ namespace DAL_SHOPPING
             foreach (DataRow item in dt.Rows)
             {
                 object[] row = item.ItemArray;
-                int code = Convert.ToInt32(row[0]);
-                string productCode = row[2].ToString();
-                int quantity = Convert.ToInt32(row[3]);
-                DetailBill c = new DetailBill(code, billCode, productCode, quantity);
+                string productCode = row[1].ToString();
+                int quantity = Convert.ToInt32(row[2]);
+                DetailBill c = new DetailBill(billCode, productCode, quantity);
                 list.Add(c);
             }
             return list;
@@ -54,11 +52,22 @@ namespace DAL_SHOPPING
             if (dt.Rows.Count != 0)
             {
                 object[] row = dt.Rows[0].ItemArray;
-                int code = Convert.ToInt32(row[0]);
-                int quantity = Convert.ToInt32(row[3]);
-                c = new DetailBill(code, billCode, productCode, quantity);
+                int quantity = Convert.ToInt32(row[2]);
+                c = new DetailBill(billCode, productCode, quantity);
             }
             return c;
+        }
+
+        public static DataTable AdvancedSearch(int billCode)
+        {
+            DataTable dt = DataAccess.ExecuteQuery
+                (@"SELECT        tblCustomer.Name, tblProduct.Name AS ProductName, tblProduct.Unit, tblProduct.Price, tblDetailBill.Quantity, tblBill.DateBuy
+                    FROM            tblBill INNER JOIN
+                                                tblCustomer ON tblBill.CustomerCode = tblCustomer.Code INNER JOIN
+                                                tblDetailBill ON tblBill.Code = tblDetailBill.BillCode INNER JOIN
+                                                tblProduct ON tblDetailBill.ProductCode = tblProduct.Code
+                    WHERE tblBill.Code = " + billCode);
+            return dt;
         }
 
         public static int Size()
@@ -67,7 +76,7 @@ namespace DAL_SHOPPING
         }
         public static bool Insert(DetailBill c)
         {
-            string sql = @"INSERT INTO tblDetailBill VALUES(" + c.Code + ", " + c.BillCode + ", '" + c.ProductCode + "', " + c.Quantity + ")";
+            string sql = @"INSERT INTO tblDetailBill VALUES(" + c.BillCode + ", '" + c.ProductCode + "', " + c.Quantity + ")";
             return DataAccess.ExecuteNonQuery(sql);
         }
 

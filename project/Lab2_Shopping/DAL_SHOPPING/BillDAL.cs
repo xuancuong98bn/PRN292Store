@@ -47,7 +47,7 @@ namespace DAL_SHOPPING
 
         public static bool Insert(Bill c)
         {
-            string sql = @"INSERT INTO tblBill VALUES(" + c.Code + ", '" + c.CustomerCode + "', '" + c.DateBuy + "')";
+            string sql = @"INSERT INTO tblBill VALUES('" + c.CustomerCode + "', '" + c.DateBuy + "')";
             return DataAccess.ExecuteNonQuery(sql);
         }
 

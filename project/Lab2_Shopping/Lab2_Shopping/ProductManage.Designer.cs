@@ -77,7 +77,7 @@
             this.panel1.Location = new System.Drawing.Point(77, 212);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(506, 40);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 2;
             // 
             // btnExit
             // 
@@ -87,7 +87,7 @@
             this.btnExit.Location = new System.Drawing.Point(416, 6);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(80, 25);
-            this.btnExit.TabIndex = 5;
+            this.btnExit.TabIndex = 10;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -100,7 +100,7 @@
             this.btnDelete.Location = new System.Drawing.Point(335, 6);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 25);
-            this.btnDelete.TabIndex = 4;
+            this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -114,7 +114,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(254, 6);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(80, 25);
-            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -127,7 +127,7 @@
             this.btnModify.Location = new System.Drawing.Point(173, 6);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(80, 25);
-            this.btnModify.TabIndex = 2;
+            this.btnModify.TabIndex = 7;
             this.btnModify.Text = "Sửa";
             this.btnModify.UseVisualStyleBackColor = false;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
@@ -141,7 +141,7 @@
             this.btnAdd.Location = new System.Drawing.Point(91, 6);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 25);
-            this.btnAdd.TabIndex = 1;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -154,7 +154,7 @@
             this.btnNew.Location = new System.Drawing.Point(10, 6);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(80, 25);
-            this.btnNew.TabIndex = 0;
+            this.btnNew.TabIndex = 5;
             this.btnNew.Text = "Mới";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -174,7 +174,7 @@
             this.groupBoxInfor.Location = new System.Drawing.Point(16, 61);
             this.groupBoxInfor.Name = "groupBoxInfor";
             this.groupBoxInfor.Size = new System.Drawing.Size(628, 132);
-            this.groupBoxInfor.TabIndex = 2;
+            this.groupBoxInfor.TabIndex = 1;
             this.groupBoxInfor.TabStop = false;
             this.groupBoxInfor.Text = "Thông tin mặt hàng cập nhật";
             // 
@@ -191,7 +191,7 @@
             this.comboUnit.Location = new System.Drawing.Point(397, 32);
             this.comboUnit.Name = "comboUnit";
             this.comboUnit.Size = new System.Drawing.Size(153, 21);
-            this.comboUnit.TabIndex = 9;
+            this.comboUnit.TabIndex = 3;
             // 
             // txtName
             // 
@@ -200,7 +200,7 @@
             this.txtName.Location = new System.Drawing.Point(102, 68);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(153, 20);
-            this.txtName.TabIndex = 8;
+            this.txtName.TabIndex = 2;
             // 
             // txtPrice
             // 
@@ -209,7 +209,7 @@
             this.txtPrice.Location = new System.Drawing.Point(397, 68);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(153, 20);
-            this.txtPrice.TabIndex = 6;
+            this.txtPrice.TabIndex = 4;
             // 
             // txtCode
             // 
@@ -218,7 +218,7 @@
             this.txtCode.Location = new System.Drawing.Point(102, 33);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(153, 20);
-            this.txtCode.TabIndex = 5;
+            this.txtCode.TabIndex = 1;
             // 
             // lblName
             // 
@@ -282,7 +282,7 @@
             this.dataGridProduct.Name = "dataGridProduct";
             this.dataGridProduct.ReadOnly = true;
             this.dataGridProduct.Size = new System.Drawing.Size(549, 168);
-            this.dataGridProduct.TabIndex = 1;
+            this.dataGridProduct.TabIndex = 11;
             this.dataGridProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellClick);
             // 
             // lblListView

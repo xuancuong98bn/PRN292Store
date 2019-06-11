@@ -201,7 +201,7 @@ namespace Lab2_Shopping
 
         private void BillManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //Application.OpenForms[1].Show();
+            Application.OpenForms[1].Show();
         }
 
         

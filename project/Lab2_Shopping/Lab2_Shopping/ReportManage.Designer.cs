@@ -67,7 +67,7 @@
             this.btnExit.Location = new System.Drawing.Point(545, 176);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(80, 25);
-            this.btnExit.TabIndex = 5;
+            this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -80,7 +80,7 @@
             this.btnPrint.Location = new System.Drawing.Point(545, 61);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(80, 25);
-            this.btnPrint.TabIndex = 1;
+            this.btnPrint.TabIndex = 7;
             this.btnPrint.Text = "In báo";
             this.btnPrint.UseVisualStyleBackColor = false;
             // 
@@ -92,7 +92,7 @@
             this.btnSearch.Location = new System.Drawing.Point(516, 67);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(80, 25);
-            this.btnSearch.TabIndex = 0;
+            this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -113,7 +113,7 @@
             this.groupBoxInfor.Location = new System.Drawing.Point(16, 61);
             this.groupBoxInfor.Name = "groupBoxInfor";
             this.groupBoxInfor.Size = new System.Drawing.Size(628, 119);
-            this.groupBoxInfor.TabIndex = 2;
+            this.groupBoxInfor.TabIndex = 1;
             this.groupBoxInfor.TabStop = false;
             this.groupBoxInfor.Text = "Thông tin mặt hàng đã bán";
             // 
@@ -123,7 +123,7 @@
             this.comboBillCode.Location = new System.Drawing.Point(102, 33);
             this.comboBillCode.Name = "comboBillCode";
             this.comboBillCode.Size = new System.Drawing.Size(153, 21);
-            this.comboBillCode.TabIndex = 9;
+            this.comboBillCode.TabIndex = 1;
             this.comboBillCode.SelectedIndexChanged += new System.EventHandler(this.comboBillCode_SelectedIndexChanged);
             // 
             // txtFrom
@@ -132,7 +132,7 @@
             this.txtFrom.Location = new System.Drawing.Point(102, 71);
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(91, 20);
-            this.txtFrom.TabIndex = 8;
+            this.txtFrom.TabIndex = 3;
             // 
             // txtTo
             // 
@@ -140,7 +140,7 @@
             this.txtTo.Location = new System.Drawing.Point(397, 71);
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(91, 20);
-            this.txtTo.TabIndex = 6;
+            this.txtTo.TabIndex = 4;
             // 
             // txtNameProduct
             // 
@@ -149,7 +149,7 @@
             this.txtNameProduct.Name = "txtNameProduct";
             this.txtNameProduct.ReadOnly = true;
             this.txtNameProduct.Size = new System.Drawing.Size(199, 20);
-            this.txtNameProduct.TabIndex = 5;
+            this.txtNameProduct.TabIndex = 2;
             // 
             // lblName
             // 
@@ -203,7 +203,7 @@
             this.panel3.Location = new System.Drawing.Point(16, 200);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(628, 277);
-            this.panel3.TabIndex = 3;
+            this.panel3.TabIndex = 2;
             // 
             // dataGridProduct
             // 
@@ -211,7 +211,7 @@
             this.dataGridProduct.Location = new System.Drawing.Point(9, 3);
             this.dataGridProduct.Name = "dataGridProduct";
             this.dataGridProduct.Size = new System.Drawing.Size(530, 271);
-            this.dataGridProduct.TabIndex = 1;
+            this.dataGridProduct.TabIndex = 6;
             // 
             // ReportManage
             // 

@@ -82,7 +82,7 @@
             this.panel1.Location = new System.Drawing.Point(77, 212);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(506, 40);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 2;
             // 
             // btnExit
             // 
@@ -92,7 +92,7 @@
             this.btnExit.Location = new System.Drawing.Point(416, 6);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(80, 25);
-            this.btnExit.TabIndex = 5;
+            this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -105,7 +105,7 @@
             this.btnDelete.Location = new System.Drawing.Point(335, 6);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 25);
-            this.btnDelete.TabIndex = 4;
+            this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -119,7 +119,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(254, 6);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(80, 25);
-            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -132,7 +132,7 @@
             this.btnModify.Location = new System.Drawing.Point(173, 6);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(80, 25);
-            this.btnModify.TabIndex = 2;
+            this.btnModify.TabIndex = 8;
             this.btnModify.Text = "Sửa";
             this.btnModify.UseVisualStyleBackColor = false;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
@@ -146,7 +146,7 @@
             this.btnAdd.Location = new System.Drawing.Point(91, 6);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 25);
-            this.btnAdd.TabIndex = 1;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -159,7 +159,7 @@
             this.btnNew.Location = new System.Drawing.Point(10, 6);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(80, 25);
-            this.btnNew.TabIndex = 0;
+            this.btnNew.TabIndex = 6;
             this.btnNew.Text = "Mới";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -181,7 +181,7 @@
             this.groupBoxInfor.Location = new System.Drawing.Point(16, 61);
             this.groupBoxInfor.Name = "groupBoxInfor";
             this.groupBoxInfor.Size = new System.Drawing.Size(628, 132);
-            this.groupBoxInfor.TabIndex = 2;
+            this.groupBoxInfor.TabIndex = 1;
             this.groupBoxInfor.TabStop = false;
             this.groupBoxInfor.Text = "Thông tin khách hàng";
             // 
@@ -201,7 +201,7 @@
             this.radFemale.Location = new System.Drawing.Point(108, 3);
             this.radFemale.Name = "radFemale";
             this.radFemale.Size = new System.Drawing.Size(41, 17);
-            this.radFemale.TabIndex = 1;
+            this.radFemale.TabIndex = 4;
             this.radFemale.Text = "Nữ";
             this.radFemale.UseVisualStyleBackColor = true;
             // 
@@ -213,7 +213,7 @@
             this.radMale.Location = new System.Drawing.Point(26, 3);
             this.radMale.Name = "radMale";
             this.radMale.Size = new System.Drawing.Size(50, 17);
-            this.radMale.TabIndex = 0;
+            this.radMale.TabIndex = 4;
             this.radMale.TabStop = true;
             this.radMale.Text = "Nam";
             this.radMale.UseVisualStyleBackColor = true;
@@ -225,7 +225,7 @@
             this.txtName.Location = new System.Drawing.Point(394, 33);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 20);
-            this.txtName.TabIndex = 8;
+            this.txtName.TabIndex = 2;
             // 
             // txtAddress
             // 
@@ -234,7 +234,7 @@
             this.txtAddress.Location = new System.Drawing.Point(102, 94);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(339, 20);
-            this.txtAddress.TabIndex = 7;
+            this.txtAddress.TabIndex = 5;
             // 
             // txtDOB
             // 
@@ -243,7 +243,7 @@
             this.txtDOB.Location = new System.Drawing.Point(102, 64);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(153, 20);
-            this.txtDOB.TabIndex = 6;
+            this.txtDOB.TabIndex = 3;
             // 
             // txtCode
             // 
@@ -252,7 +252,7 @@
             this.txtCode.Location = new System.Drawing.Point(102, 33);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 20);
-            this.txtCode.TabIndex = 5;
+            this.txtCode.TabIndex = 1;
             // 
             // lblGender
             // 
@@ -327,7 +327,7 @@
             this.dataGridCustomer.Name = "dataGridCustomer";
             this.dataGridCustomer.ReadOnly = true;
             this.dataGridCustomer.Size = new System.Drawing.Size(558, 168);
-            this.dataGridCustomer.TabIndex = 1;
+            this.dataGridCustomer.TabIndex = 12;
             this.dataGridCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCustomer_CellClick);
             // 
             // lblListView

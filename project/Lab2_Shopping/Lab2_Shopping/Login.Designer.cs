@@ -57,14 +57,14 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(227, 20);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
             // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(12, 27);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(227, 20);
-            this.txtUsername.TabIndex = 2;
+            this.txtUsername.TabIndex = 1;
             // 
             // lblPassword
             // 
@@ -98,7 +98,7 @@
             this.btnCancel.Location = new System.Drawing.Point(108, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(95, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Tag = "";
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.btnOK.Location = new System.Drawing.Point(8, 6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(94, 23);
-            this.btnOK.TabIndex = 0;
+            this.btnOK.TabIndex = 3;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);

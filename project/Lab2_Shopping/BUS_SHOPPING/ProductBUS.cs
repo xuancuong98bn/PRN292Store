@@ -69,7 +69,7 @@ namespace BUS_SHOPPING
 
         public bool Insert(string code, string name, string unit, string price)
         {
-            if (!Service.CheckCode(code))
+            if (!Service.CheckCode(code, @"^[a-zA-Z]\d{2}$"))
             {
                 MessageBox.Show("Mã sản phẩm sai định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

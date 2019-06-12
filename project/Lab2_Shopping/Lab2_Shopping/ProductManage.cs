@@ -1,5 +1,6 @@
 ﻿using BUS_SHOPPING;
 using DTL_SHOPPING;
+using SERVICE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,11 +25,11 @@ namespace Lab2_Shopping
             product.LoadGridView(dataGridProduct);
             Product p = product.GetFirstProduct(dataGridProduct);
             SetValueTextBox(p);
+            SetEnableTextBox(false);
         }
 
         private void SetValueTextBox(Product c)
         {
-            SetEnableTextBox(false);
             txtCode.Text = c.Code;
             txtName.Text = c.Name;
             comboUnit.Text = c.Unit;
@@ -43,10 +44,10 @@ namespace Lab2_Shopping
             txtPrice.Enabled = status;
         }
 
-        private void EmptyTextBox()
+        private void EmptyTextBox(bool checkCode)
         {
             SetEnableTextBox(true);
-            txtCode.Text = "";
+            txtCode.Text = checkCode ? "" : txtCode.Text;
             txtName.Text = "";
             comboUnit.Text = "";
             txtPrice.Text = "";
@@ -54,21 +55,11 @@ namespace Lab2_Shopping
 
         private bool CheckEmpty()
         {
-            if (IsEmptyTxt(txtCode, lblCode)) return false;
-            if (IsEmptyTxt(txtName, lblName)) return false;
-            if (IsEmptyTxt(comboUnit, lblUnit)) return false;
-            if (IsEmptyTxt(txtPrice, lblPrice)) return false;
+            if (Service.IsEmptyControl(txtCode, lblCode.Text)) return false;
+            if (Service.IsEmptyControl(txtName, lblName.Text)) return false;
+            if (Service.IsEmptyControl(comboUnit, lblUnit.Text)) return false;
+            if (Service.IsEmptyControl(txtPrice, lblPrice.Text)) return false;
             return true;
-        }
-
-        private bool IsEmptyTxt(Control txt, Label lbl)
-        {
-            if (txt.Text.Trim() == "")
-            {
-                MessageBox.Show(lbl.Text + " không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return true;
-            }
-            return false;
         }
 
         private void dataGridProduct_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -83,6 +74,7 @@ namespace Lab2_Shopping
                 double price = Convert.ToDouble(cell["Price"].Value);
                 Product c = new Product(code, name, unit, price);
                 SetValueTextBox(c);
+                SetEnableTextBox(false);
             }
         }
 
@@ -95,9 +87,47 @@ namespace Lab2_Shopping
             btnDelete.Enabled = b5;
         }
 
+        private void SelectRow(string code)
+        {
+            int index = 0;
+            for (int i = 0; i < dataGridProduct.Rows.Count; i++)
+            {
+                DataGridViewCellCollection cell = dataGridProduct.Rows[i].Cells;
+                string Code = cell["Code"].Value.ToString();
+                if (code.Trim().Equals(Code.Trim()))
+                {
+                    index = i;
+                    break;
+                }
+            }
+            for (int i = 0; i < dataGridProduct.SelectedRows.Count; i++)
+            {
+                dataGridProduct.SelectedRows[i].Selected = false;
+            }
+            dataGridProduct.Rows[index].Selected = true;
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+            Product c = product.Search(txtCode.Text);
+            if (c != null)
+            {
+                SetValueTextBox(c);
+                SetEnableTextBox(false);
+                txtCode.Enabled = true;
+                btnAdd.Enabled = false;
+                SelectRow(c.Code);
+            }
+            else
+            {
+                btnAdd.Enabled = true;
+                EmptyTextBox(false);
+            }
+        }
+
         private void btnNew_Click(object sender, EventArgs e)
         {
-            EmptyTextBox();
+            EmptyTextBox(true);
             SetEnableButton(true, true, false, false, false);
         }
 
@@ -168,5 +198,6 @@ namespace Lab2_Shopping
         {
             Application.OpenForms[1].Show();
         }
+
     }
 }

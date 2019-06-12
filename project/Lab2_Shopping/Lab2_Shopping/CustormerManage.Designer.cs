@@ -197,6 +197,7 @@
             // radFemale
             // 
             this.radFemale.AutoSize = true;
+            this.radFemale.Enabled = false;
             this.radFemale.ForeColor = System.Drawing.Color.Black;
             this.radFemale.Location = new System.Drawing.Point(108, 3);
             this.radFemale.Name = "radFemale";
@@ -209,6 +210,7 @@
             // 
             this.radMale.AutoSize = true;
             this.radMale.Checked = true;
+            this.radMale.Enabled = false;
             this.radMale.ForeColor = System.Drawing.Color.Black;
             this.radMale.Location = new System.Drawing.Point(26, 3);
             this.radMale.Name = "radMale";
@@ -253,6 +255,7 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 20);
             this.txtCode.TabIndex = 1;
+            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
             // lblGender
             // 

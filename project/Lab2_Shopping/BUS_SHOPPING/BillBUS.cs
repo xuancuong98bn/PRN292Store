@@ -25,13 +25,13 @@ namespace BUS_SHOPPING
             }
         }
 
-        public bool Insert(string customerCode, string dateBuy)
+        public bool Insert(string code, string customerCode, string dateBuy)
         {
             try
             {
-                //check customcode is empty
+                int Code = Convert.ToInt32(code);
                 DateTime DateBuy = Convert.ToDateTime(dateBuy);
-                Bill c = new Bill(0, customerCode, DateBuy);
+                Bill c = new Bill(Code, customerCode, DateBuy);
                 return BillDAL.Insert(c);
             }
             catch (Exception e)

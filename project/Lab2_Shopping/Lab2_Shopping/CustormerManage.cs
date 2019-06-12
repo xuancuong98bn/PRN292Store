@@ -1,5 +1,6 @@
 ﻿using BUS_SHOPPING;
 using DTL_SHOPPING;
+using SERVICE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,11 +26,11 @@ namespace Lab2_Shopping
             dataGridCustomer.Rows[0].Cells[0].Selected = true;
             Customer c = custormer.GetFirstCustomer(dataGridCustomer);
             SetValueTextBox(c);
+            SetEnableTextBox(false);
         }
 
         private void SetValueTextBox(Customer c)
         {
-            SetEnableTextBox(false);
             txtCode.Text = c.Code;
             txtDOB.Text = c.Dob.ToString();
             txtAddress.Text = c.Address;
@@ -48,11 +49,11 @@ namespace Lab2_Shopping
             radFemale.Enabled = status;
         }
 
-        private void EmptyTextBox()
+        private void EmptyTextBox(bool checkCode)
         {
             SetEnableTextBox(true);
-            txtCode.Text = "";
-            txtDOB.Text = "";
+            txtCode.Text = checkCode?"": txtCode.Text;
+            txtDOB.Text = DateTime.Now.ToString();
             txtAddress.Text = "";
             txtName.Text = "";
             radMale.Checked = true;
@@ -61,21 +62,11 @@ namespace Lab2_Shopping
 
         private bool CheckEmpty()
         {
-            if (IsEmptyTxt(txtCode, lblCode)) return false;
-            if (IsEmptyTxt(txtName, lblName)) return false;
-            if (IsEmptyTxt(txtDOB, lblDOB)) return false;
-            if (IsEmptyTxt(txtAddress, lblAddress)) return false;
+            if (Service.IsEmptyControl(txtCode, lblCode.Text)) return false;
+            if (Service.IsEmptyControl(txtName, lblName.Text)) return false;
+            if (Service.IsEmptyControl(txtDOB, lblDOB.Text)) return false;
+            if (Service.IsEmptyControl(txtAddress, lblAddress.Text)) return false;
             return true;
-        }
-
-        private bool IsEmptyTxt(TextBox txt, Label lbl)
-        {
-            if (txt.Text.Trim() == "")
-            {
-                MessageBox.Show(lbl.Text + " không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return true;
-            }
-            return false;
         }
 
         private void dataGridCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -91,6 +82,7 @@ namespace Lab2_Shopping
                 bool gender = Convert.ToBoolean(cell["Gender"].Value);
                 Customer c = new Customer(code, name, gender, address, dob);
                 SetValueTextBox(c);
+                SetEnableTextBox(false);
             }
         }
 
@@ -102,10 +94,48 @@ namespace Lab2_Shopping
             btnUpdate.Enabled = b4;
             btnDelete.Enabled = b5;
         }
+
+        private void SelectRow(string code)
+        {
+            int index = 0;
+            for (int i = 0; i < dataGridCustomer.Rows.Count; i++)
+            {
+                DataGridViewCellCollection cell = dataGridCustomer.Rows[i].Cells;
+                string Code = cell["Code"].Value.ToString();
+                if (code.Trim().Equals(Code.Trim()))
+                {
+                    index = i;
+                    break;
+                }
+            }
+            for (int i = 0; i < dataGridCustomer.SelectedRows.Count; i++)
+            {
+                dataGridCustomer.SelectedRows[i].Selected = false;
+            }
+            dataGridCustomer.Rows[index].Selected = true;
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+            Customer c = custormer.Search(txtCode.Text);
+            if (c != null)
+            {
+                SetValueTextBox(c);
+                SetEnableTextBox(false);
+                txtCode.Enabled = true;
+                btnAdd.Enabled = false;
+                SelectRow(c.Code);
+            }
+            else
+            {
+                btnAdd.Enabled = true;
+                EmptyTextBox(false);
+            }
+        }
+
         private void btnNew_Click(object sender, EventArgs e)
         {
-            EmptyTextBox();
-            txtDOB.Text = DateTime.Now.ToString();
+            EmptyTextBox(true);
             SetEnableButton(true, true, false, false, false);
         }
 
@@ -178,5 +208,6 @@ namespace Lab2_Shopping
         {
             Application.OpenForms[1].Show();
         }
+
     }
 }

@@ -219,6 +219,7 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(153, 20);
             this.txtCode.TabIndex = 1;
+            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
             // lblName
             // 

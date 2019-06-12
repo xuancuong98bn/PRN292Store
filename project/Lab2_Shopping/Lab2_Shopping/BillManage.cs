@@ -60,10 +60,9 @@ namespace Lab2_Shopping
         {
             if (CheckInput())
             {
-                if (bill.Insert(txtCustomerCode.Text, txtDateBuy.Text))
+                if (bill.Insert(txtBillCode.Text, txtCustomerCode.Text, txtDateBuy.Text))
                 {
                     MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    var list = detailBill.AdvancedSearch(txtBillCode.Text);
                     SetEnableButton(false, true, true);
                     dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
                 }

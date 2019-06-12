@@ -30,15 +30,14 @@ namespace DAL_SHOPPING
             return DataAccess.SelectTable(TableName);
         }
 
-        public static Bill Search(int code)
+        public static Bill Search(int code, string customerCode)
         {
             Bill c = null;
             //code = code.Trim();
-            DataTable dt = DataAccess.ExecuteQuery("SELECT * FROM " + TableName + " WHERE Code = " + code);
+            DataTable dt = DataAccess.ExecuteQuery("SELECT * FROM " + TableName + " WHERE Code = " + code + " AND CustomerCode = '" + customerCode + "'");
             if (dt.Rows.Count != 0)
             {
                 object[] row = dt.Rows[0].ItemArray;
-                string customerCode = row[1].ToString();
                 DateTime dateBuy = Convert.ToDateTime(row[2]);
                 c = new Bill(code, customerCode, dateBuy);
             }

@@ -45,6 +45,19 @@ namespace BUS_SHOPPING
             }
         }
 
+        public double Total(string text)
+        {
+            try
+            {
+                int code = Convert.ToInt32(text);
+                return DetailBillDAL.Total(code);
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
         public DetailBill SearchDetail(string bill, string product)
         {
             try
@@ -68,6 +81,7 @@ namespace BUS_SHOPPING
             {
                 BillCode = Convert.ToInt32(billCode);
                 Quantity = Convert.ToInt32(quantity);
+                if (Quantity <= 0) throw new Exception();
             }
             catch (Exception e)
             {
@@ -78,14 +92,16 @@ namespace BUS_SHOPPING
             return DetailBillDAL.Insert(c);
         }
 
-        public bool Update(string billCode, string ProductCode, string quantity)
+        public bool Update(string billCode, string ProductCode, string quantity, int oldQuantity, bool more)
         {
             int BillCode = 0;
-            int Quantity = 0;
+            int Quantity = oldQuantity;
             try
             {
                 BillCode = Convert.ToInt32(billCode);
-                Quantity = Convert.ToInt32(quantity);
+                int newQuantity = Convert.ToInt32(quantity);
+                if (newQuantity <= 0) throw new Exception();
+                Quantity += more?newQuantity:-newQuantity;
             }
             catch (Exception e)
             {

@@ -10,13 +10,13 @@ namespace BUS_SHOPPING
 {
     public class BillBUS
     {
-        public Bill Search(string code)
+        public Bill Search(string code, string customerCode)
         {
             try
             {
                 int Code = 0;
                 Code = Convert.ToInt32(code);
-                Bill c = BillDAL.Search(Code);
+                Bill c = BillDAL.Search(Code, customerCode);
                 return c;
             }
             catch (Exception e)

@@ -54,6 +54,8 @@
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.comProductName = new System.Windows.Forms.ComboBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBoxInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBill)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,7 +78,7 @@
             this.btnExit.BackColor = System.Drawing.SystemColors.Control;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Red;
-            this.btnExit.Location = new System.Drawing.Point(149, 188);
+            this.btnExit.Location = new System.Drawing.Point(149, 202);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(80, 25);
             this.btnExit.TabIndex = 12;
@@ -264,11 +266,14 @@
             this.dataGridBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBill.Location = new System.Drawing.Point(387, 47);
             this.dataGridBill.Name = "dataGridBill";
-            this.dataGridBill.Size = new System.Drawing.Size(324, 166);
+            this.dataGridBill.Size = new System.Drawing.Size(324, 143);
             this.dataGridBill.TabIndex = 11;
+            this.dataGridBill.DataSourceChanged += new System.EventHandler(this.dataGridBill_DataSourceChanged);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTotal);
+            this.groupBox1.Controls.Add(this.lblTotal);
             this.groupBox1.Controls.Add(this.lblListView);
             this.groupBox1.Controls.Add(this.btnExit);
             this.groupBox1.Controls.Add(this.lblQuantity);
@@ -358,6 +363,23 @@
             this.comProductName.TabIndex = 6;
             this.comProductName.SelectedIndexChanged += new System.EventHandler(this.comProductName_SelectedIndexChanged);
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(494, 207);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(39, 15);
+            this.lblTotal.TabIndex = 13;
+            this.lblTotal.Text = "Tổng";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(539, 204);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(172, 21);
+            this.txtTotal.TabIndex = 14;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // BillManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,5 +431,7 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.ComboBox comProductName;
         private System.Windows.Forms.Label lblListView;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

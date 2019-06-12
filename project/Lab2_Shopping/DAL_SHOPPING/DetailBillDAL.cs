@@ -61,13 +61,26 @@ namespace DAL_SHOPPING
         public static DataTable AdvancedSearch(int billCode)
         {
             DataTable dt = DataAccess.ExecuteQuery
-                (@"SELECT        tblCustomer.Name, tblProduct.Name AS ProductName, tblProduct.Unit, tblProduct.Price, tblDetailBill.Quantity, tblBill.DateBuy
+                (@"SELECT        tblCustomer.Name, tblProduct.Name AS ProductName, tblProduct.Unit, tblProduct.Price, tblDetailBill.Quantity, tblProduct.Price *tblDetailBill.Quantity Amount, tblBill.DateBuy 
                     FROM            tblBill INNER JOIN
                                                 tblCustomer ON tblBill.CustomerCode = tblCustomer.Code INNER JOIN
                                                 tblDetailBill ON tblBill.Code = tblDetailBill.BillCode INNER JOIN
                                                 tblProduct ON tblDetailBill.ProductCode = tblProduct.Code
                     WHERE tblBill.Code = " + billCode);
             return dt;
+        }
+
+        public static double Total(int billCode)
+        {
+            double total = 0;
+            total = (double)DataAccess.ExecuteScalarQuery
+                (@"SELECT        SUM(tblProduct.Price *tblDetailBill.Quantity)
+                    FROM            tblBill INNER JOIN
+                                                tblCustomer ON tblBill.CustomerCode = tblCustomer.Code INNER JOIN
+                                                tblDetailBill ON tblBill.Code = tblDetailBill.BillCode INNER JOIN
+                                                tblProduct ON tblDetailBill.ProductCode = tblProduct.Code
+                    WHERE tblBill.Code = " + billCode);
+            return total;
         }
 
         public static int Size()

@@ -35,8 +35,8 @@ namespace Lab2_Shopping
             txtDOB.Text = c.Dob.ToString();
             txtAddress.Text = c.Address;
             txtName.Text = c.Name;
-            radMale.Checked = c.Gender;
-            radFemale.Checked = !c.Gender;
+            radMale.Checked = c.IsGender();
+            radFemale.Checked = !c.IsGender();
         }
 
         private void SetEnableTextBox(bool status)
@@ -80,6 +80,7 @@ namespace Lab2_Shopping
                 string address = cell["Address"].Value.ToString();
                 string name = cell["Name"].Value.ToString();
                 bool gender = Convert.ToBoolean(cell["Gender"].Value);
+                //bool gender = cell["Gender"].Value.Equals("Nam");
                 Customer c = new Customer(code, name, gender, address, dob);
                 SetValueTextBox(c);
                 SetEnableTextBox(false);
@@ -208,6 +209,5 @@ namespace Lab2_Shopping
         {
             Application.OpenForms[1].Show();
         }
-
     }
 }

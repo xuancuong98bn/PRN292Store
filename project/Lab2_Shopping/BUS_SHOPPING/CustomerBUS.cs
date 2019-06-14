@@ -16,7 +16,7 @@ namespace BUS_SHOPPING
 
         public void LoadGridView(DataGridView dataGrid)
         {
-            DataTable data = CustomerDAL.GetTable();
+            var data = CustomerDAL.GetTable();
             dataGrid.DataSource = data;
         }
 

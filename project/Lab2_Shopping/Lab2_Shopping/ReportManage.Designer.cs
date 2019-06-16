@@ -223,7 +223,7 @@
             this.Controls.Add(this.groupBoxInfor);
             this.Controls.Add(this.lblTitle);
             this.Name = "ReportManage";
-            this.Text = "MẶT HÀNG";
+            this.Text = "BÁO CÁO";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReportManage_FormClosed);
             this.Load += new System.EventHandler(this.ReportManage_Load);
             this.groupBoxInfor.ResumeLayout(false);

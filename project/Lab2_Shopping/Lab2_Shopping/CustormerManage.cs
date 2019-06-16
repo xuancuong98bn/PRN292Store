@@ -137,6 +137,8 @@ namespace Lab2_Shopping
         private void btnNew_Click(object sender, EventArgs e)
         {
             EmptyTextBox(true);
+            txtCode.Text = custormer.GetNextCode();
+            txtCode.ReadOnly = true;
             SetEnableButton(true, true, false, false, false);
         }
 

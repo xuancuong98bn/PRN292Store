@@ -33,6 +33,11 @@ namespace DAL_SHOPPING
             return DataAccess.SelectTable("tblCustomer");
         }
 
+        public static string LastCode()
+        {
+            return DataAccess.ExecuteScalarQuery("SELECT TOP 1 Code FROM tblCustomer WHERE Code Like 'KH%' ORDER BY Code Desc").ToString();
+        }
+
         public static Customer Search(string code)
         {
             Customer customer = null;

@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Lab2_Shopping
 {
-    public partial class BillManage : Form
+    public partial class PayManage : Form
     {
         ProductBUS product = new ProductBUS();
         CustomerBUS customer = new CustomerBUS();
         BillBUS bill = new BillBUS();
         DetailBillBUS detailBill = new DetailBillBUS();
-        public BillManage()
+        public PayManage()
         {
             InitializeComponent();
         }
@@ -241,7 +241,7 @@ namespace Lab2_Shopping
 
         private void BillManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[1].Show();
+            //Application.OpenForms[1].Show();
         }
 
         private void dataGridBill_CellClick(object sender, DataGridViewCellEventArgs e)

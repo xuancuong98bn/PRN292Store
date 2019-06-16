@@ -31,6 +31,14 @@ namespace BUS_SHOPPING
             return c;
         }
 
+        public string GetNextCode()
+        {
+            string code = CustomerDAL.LastCode().Replace("KH","");
+            int curr = Convert.ToInt32(code) + 1;
+            string next = "KH"+ (curr >= 10 ? curr.ToString() : "0" + curr);
+            return next;
+        }
+
         public Customer Search(string code)
         {
             Customer c = CustomerDAL.Search(code);

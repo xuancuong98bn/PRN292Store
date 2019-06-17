@@ -56,6 +56,8 @@
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.comProductName = new System.Windows.Forms.ComboBox();
+            this.btnPayBill = new System.Windows.Forms.Button();
+            this.lblBillStatus = new System.Windows.Forms.Label();
             this.groupBoxInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBill)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -78,7 +80,7 @@
             this.btnExit.BackColor = System.Drawing.SystemColors.Control;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Red;
-            this.btnExit.Location = new System.Drawing.Point(149, 202);
+            this.btnExit.Location = new System.Drawing.Point(9, 202);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(80, 25);
             this.btnExit.TabIndex = 12;
@@ -92,7 +94,7 @@
             this.btnDelete.Enabled = false;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(292, 92);
+            this.btnDelete.Location = new System.Drawing.Point(292, 98);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 25);
             this.btnDelete.TabIndex = 10;
@@ -143,6 +145,7 @@
             // 
             // groupBoxInfor
             // 
+            this.groupBoxInfor.Controls.Add(this.lblBillStatus);
             this.groupBoxInfor.Controls.Add(this.txtDateBuy);
             this.groupBoxInfor.Controls.Add(this.txtBillCode);
             this.groupBoxInfor.Controls.Add(this.lblBillDate);
@@ -159,7 +162,7 @@
             this.groupBoxInfor.ForeColor = System.Drawing.Color.Blue;
             this.groupBoxInfor.Location = new System.Drawing.Point(16, 61);
             this.groupBoxInfor.Name = "groupBoxInfor";
-            this.groupBoxInfor.Size = new System.Drawing.Size(721, 143);
+            this.groupBoxInfor.Size = new System.Drawing.Size(721, 157);
             this.groupBoxInfor.TabIndex = 1;
             this.groupBoxInfor.TabStop = false;
             this.groupBoxInfor.Text = "Thông tin khách hàng";
@@ -273,6 +276,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPayBill);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.lblTotal);
             this.groupBox1.Controls.Add(this.lblListView);
@@ -328,7 +332,7 @@
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantity.ForeColor = System.Drawing.Color.Black;
-            this.lblQuantity.Location = new System.Drawing.Point(6, 145);
+            this.lblQuantity.Location = new System.Drawing.Point(6, 151);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(64, 15);
             this.lblQuantity.TabIndex = 9;
@@ -339,7 +343,7 @@
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.ForeColor = System.Drawing.Color.Black;
-            this.lblPrice.Location = new System.Drawing.Point(6, 100);
+            this.lblPrice.Location = new System.Drawing.Point(6, 101);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(29, 15);
             this.lblPrice.TabIndex = 8;
@@ -358,14 +362,14 @@
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(115, 142);
+            this.txtQuantity.Location = new System.Drawing.Point(115, 148);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(157, 21);
             this.txtQuantity.TabIndex = 8;
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(115, 97);
+            this.txtPrice.Location = new System.Drawing.Point(115, 101);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(157, 21);
@@ -380,6 +384,26 @@
             this.comProductName.Size = new System.Drawing.Size(157, 23);
             this.comProductName.TabIndex = 6;
             this.comProductName.SelectedIndexChanged += new System.EventHandler(this.comProductName_SelectedIndexChanged);
+            // 
+            // btnPayBill
+            // 
+            this.btnPayBill.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPayBill.Enabled = false;
+            this.btnPayBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayBill.ForeColor = System.Drawing.Color.Red;
+            this.btnPayBill.Location = new System.Drawing.Point(115, 202);
+            this.btnPayBill.Name = "btnPayBill";
+            this.btnPayBill.Size = new System.Drawing.Size(257, 25);
+            this.btnPayBill.TabIndex = 15;
+            this.btnPayBill.Text = "Thanh toán";
+            this.btnPayBill.UseVisualStyleBackColor = false;
+            // 
+            // lblBillStatus
+            // 
+            this.lblBillStatus.Location = new System.Drawing.Point(466, 132);
+            this.lblBillStatus.Name = "lblBillStatus";
+            this.lblBillStatus.Size = new System.Drawing.Size(235, 17);
+            this.lblBillStatus.TabIndex = 11;
             // 
             // BillManage
             // 
@@ -434,5 +458,7 @@
         private System.Windows.Forms.Label lblListView;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnPayBill;
+        private System.Windows.Forms.Label lblBillStatus;
     }
 }

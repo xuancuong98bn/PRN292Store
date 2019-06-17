@@ -20,7 +20,8 @@ namespace DAL_SHOPPING
                 int code = Convert.ToInt32(row[0]);
                 string customerCode = row[1].ToString();
                 DateTime dateBuy = Convert.ToDateTime(row[2]);
-                Bill c = new Bill(code, customerCode, dateBuy);
+                int status = Convert.ToInt32(row[3]);
+                Bill c = new Bill(code, customerCode, dateBuy, status);
                 list.Add(c);
             }
             return list;
@@ -39,20 +40,27 @@ namespace DAL_SHOPPING
             {
                 object[] row = dt.Rows[0].ItemArray;
                 DateTime dateBuy = Convert.ToDateTime(row[2]);
-                c = new Bill(code, customerCode, dateBuy);
+                int status = Convert.ToInt32(row[3]);
+                c = new Bill(code, customerCode, dateBuy, status);
             }
             return c;
         }
 
         public static bool Insert(Bill c)
         {
-            string sql = @"INSERT INTO tblBill VALUES(" + c.Code + ",'" + c.CustomerCode + "', '" + c.DateBuy + "')";
+            string sql = @"INSERT INTO tblBill VALUES(" + c.Code + ",'" + c.CustomerCode + "', '" + c.DateBuy + "'," + 0 + ")";
             return DataAccess.ExecuteNonQuery(sql);
         }
 
         public static bool Update(Bill c)
         {
             string sql = @"UPDATE tblBill SET CustomerCode = '" + c.CustomerCode + "', DateBuy = '" + c.DateBuy + "' WHERE code = " + c.Code;
+            return DataAccess.ExecuteNonQuery(sql);
+        }
+
+        public static bool ChangeStatus(int status, int code)
+        {
+            string sql = @"UPDATE tblBill SET Status = " + status + ", WHERE code = " + code;
             return DataAccess.ExecuteNonQuery(sql);
         }
 

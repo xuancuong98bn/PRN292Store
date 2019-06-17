@@ -63,7 +63,7 @@ namespace Lab2_Shopping
                 if (bill.Insert(txtBillCode.Text, txtCustomerCode.Text, txtDateBuy.Text))
                 {
                     MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    SetEnableButton(false, true, true);
+                    SetEnableButton(false, true, true, false);
                     dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
                 }
                 else
@@ -107,18 +107,19 @@ namespace Lab2_Shopping
             EmptyTextBox();
         }
 
-        private void SetEnableButton(bool b1, bool b2, bool b3)
+        private void SetEnableButton(bool b1, bool b2, bool b3, bool b4)
         {
             btnBuy.Enabled = b1;
             btnModify.Enabled = b2;
             btnDelete.Enabled = b3;
+            btnPayBill.Enabled = b4;
         }
 
         private void txtBillCode_TextChanged(object sender, EventArgs e)
         {
             if (txtBillCode.Text == "")
             {
-                SetEnableButton(false, false, false);
+                SetEnableButton(false, false, false, false);
                 dataGridBill.DataSource = "";
                 txtDateBuy.Text = "";
             }
@@ -127,13 +128,35 @@ namespace Lab2_Shopping
                 Bill b = bill.Search(txtBillCode.Text, txtCustomerCode.Text);
                 if (b == null)
                 {
-                    SetEnableButton(true, false, false);
+                    SetEnableButton(true, false, false, false);
                     dataGridBill.DataSource = "";
                     txtDateBuy.Text = DateTime.Now.ToShortDateString();
                 }
                 else
                 {
-                    SetEnableButton(false, true, true);
+                    int paid = detailBill.CountPaid(txtBillCode.Text);
+                    int bought = detailBill.CountPaid(txtBillCode.Text, 0);
+                    if (paid > 0)
+                    {
+                        if (paid == bought)
+                        {
+                            lblBillStatus.Text = "Hóa đơn đã thanh toán";
+                            SetEnableButton(false, false, false, false);
+                        }
+                        else
+                        {
+                            lblBillStatus.Text = "Hóa đơn đang thanh toán";
+                            SetEnableButton(false, false, false, true);
+                        }
+                    }
+                    else if (bought > 0)
+                    {
+                        SetEnableButton(false, true, true, true);
+                    }
+                    else
+                    {
+                        SetEnableButton(false, true, true, false);
+                    }
                     dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
                     txtDateBuy.Text = b.DateBuy.ToShortDateString();
                 }
@@ -241,7 +264,7 @@ namespace Lab2_Shopping
 
         private void BillManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[1].Show();
+            // Application.OpenForms[1].Show();
         }
 
         private void dataGridBill_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -25,7 +25,8 @@ namespace BUS_SHOPPING
             {
                 int code = Convert.ToInt32(text);
                 list = DetailBillDAL.Select(code);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 //do nothing
             }
@@ -45,12 +46,25 @@ namespace BUS_SHOPPING
             }
         }
 
-        public double Total(string text)
+        public double Total(string billCode)
         {
             try
             {
-                int code = Convert.ToInt32(text);
+                int code = Convert.ToInt32(billCode);
                 return DetailBillDAL.Total(code);
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+        public int CountPaid(string billCode, int status = 1)
+        {
+            try
+            {
+                int code = Convert.ToInt32(billCode);
+                return DetailBillDAL.CountPaid(code, status);
             }
             catch (Exception ex)
             {
@@ -73,6 +87,20 @@ namespace BUS_SHOPPING
 
         }
 
+        public bool Pay(string billCode, string productCode)
+        {
+            int BillCode = 0;
+            try
+            {
+                BillCode = Convert.ToInt32(billCode);
+                return DetailBillDAL.Pay(BillCode, productCode);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public bool Insert(string billCode, string ProductCode, string quantity)
         {
             int BillCode = 0;
@@ -88,7 +116,7 @@ namespace BUS_SHOPPING
                 MessageBox.Show("Số lượng không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            DetailBill c = new DetailBill(BillCode, ProductCode, Quantity);
+            DetailBill c = new DetailBill(BillCode, ProductCode, Quantity, false);
             return DetailBillDAL.Insert(c);
         }
 
@@ -101,14 +129,14 @@ namespace BUS_SHOPPING
                 BillCode = Convert.ToInt32(billCode);
                 int newQuantity = Convert.ToInt32(quantity);
                 if (newQuantity <= 0) throw new Exception();
-                Quantity += more?newQuantity:-newQuantity;
+                Quantity += more ? newQuantity : -newQuantity;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Số lượng không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            DetailBill c = new DetailBill(BillCode, ProductCode, Quantity);
+            DetailBill c = new DetailBill(BillCode, ProductCode, Quantity, false);
             return DetailBillDAL.Update(c);
         }
 

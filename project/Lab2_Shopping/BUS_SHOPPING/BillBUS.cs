@@ -31,13 +31,18 @@ namespace BUS_SHOPPING
             {
                 int Code = Convert.ToInt32(code);
                 DateTime DateBuy = Convert.ToDateTime(dateBuy);
-                Bill c = new Bill(Code, customerCode, DateBuy);
+                Bill c = new Bill(Code, customerCode, DateBuy, 0);
                 return BillDAL.Insert(c);
             }
             catch (Exception e)
             {
                 return false;
             }
+        }
+
+        public bool ChangeStatus(int status, int code)
+        {
+            return BillDAL.ChangeStatus(status, code);
         }
 
         public bool Update(TextBox billCode, TextBox ProductCode, TextBox quantity)
@@ -54,7 +59,7 @@ namespace BUS_SHOPPING
                 MessageBox.Show("Số lượng không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            DetailBill c = new DetailBill(BillCode, ProductCode.Text, Quantity);
+            DetailBill c = new DetailBill(BillCode, ProductCode.Text, Quantity, false);
             return DetailBillDAL.Update(c);
         }
 

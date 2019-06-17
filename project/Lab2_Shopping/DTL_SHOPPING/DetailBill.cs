@@ -10,17 +10,19 @@ namespace DTL_SHOPPING
         public int BillCode { get; set; }
         public string ProductCode { get; set; }
         public int Quantity { get; set; }
+        public bool Status { get; set; }
 
         public DetailBill()
         {
 
         }
 
-        public DetailBill(int billCode, string productCode, int quantity)
+        public DetailBill(int billCode, string productCode, int quantity, bool status)
         {
             BillCode = billCode;
             ProductCode = productCode;
             Quantity = quantity;
+            Status = status;
         }
     }
 }

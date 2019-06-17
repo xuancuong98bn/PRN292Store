@@ -23,54 +23,32 @@ namespace Lab2_Shopping
             InitializeComponent();
         }
 
+        public TextBox getTxtCustomerCode()
+        {
+            return txtCustomerCode;
+        }
+
+        public TextBox getTxtBillCode()
+        {
+            return txtBillCode;
+        }
+
         private void BillManage_Load(object sender, EventArgs e)
         {
             product.LoadComboBox(comProductName);
             FillPrice();
         }
 
-        private void EmptyTextBox()
+        private void btnPayAll_Click(object sender, EventArgs e)
         {
-            txtCustomerCode.Text = "";
-            txtCustomerName.Text = "";
-            txtAddress.Text = "";
-            txtBillCode.Text = "";
-            txtDateBuy.Text = "";
-        }
-
-        private bool CheckInput()
-        {
-            if (Service.IsEmptyControl(txtCustomerCode, lblCode.Text))
+            DialogResult result = MessageBox.Show("Bạn có thanh toán toàn bộ hóa đơn?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                return false;
+                detailBill.PayAll(txtBillCode.Text);
             }
-            if (customer.Search(txtCustomerCode.Text) == null)
-            {
-                MessageBox.Show("Người dùng không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-            if (Service.IsEmptyControl(txtDateBuy, lblBillDate.Text))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        private void btnBuy_Click(object sender, EventArgs e)
-        {
-            if (CheckInput())
-            {
-                if (bill.Insert(txtBillCode.Text, txtCustomerCode.Text, txtDateBuy.Text))
-                {
-                    MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    SetEnableButton(false, true, true);
-                    dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Thêm hóa đơn thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+            dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text, false);
+            btnPayAll.Enabled = false;
+            DisplayDataToField();
         }
 
         private void FillPrice()
@@ -102,23 +80,20 @@ namespace Lab2_Shopping
             FillPrice();
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
+        private void btnPayAProduct_Click(object sender, EventArgs e)
         {
-            EmptyTextBox();
-        }
-
-        private void SetEnableButton(bool b1, bool b2, bool b3)
-        {
-            btnBuy.Enabled = b1;
-            btnModify.Enabled = b2;
-            btnDelete.Enabled = b3;
+            DialogResult result = MessageBox.Show("Bạn có thanh toán mặt hàng này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                detailBill.Pay(txtBillCode.Text, comProductName.SelectedValue.ToString());
+            }
+            dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text, false);
         }
 
         private void txtBillCode_TextChanged(object sender, EventArgs e)
         {
             if (txtBillCode.Text == "")
             {
-                SetEnableButton(false, false, false);
                 dataGridBill.DataSource = "";
                 txtDateBuy.Text = "";
             }
@@ -127,102 +102,16 @@ namespace Lab2_Shopping
                 Bill b = bill.Search(txtBillCode.Text, txtCustomerCode.Text);
                 if (b == null)
                 {
-                    SetEnableButton(true, false, false);
                     dataGridBill.DataSource = "";
                     txtDateBuy.Text = DateTime.Now.ToShortDateString();
                 }
                 else
                 {
-                    SetEnableButton(false, true, true);
-                    dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
+                    dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text, false);
                     txtDateBuy.Text = b.DateBuy.ToShortDateString();
+                    DisplayDataToField();
                 }
             }
-        }
-
-        private void btnModify_Click(object sender, EventArgs e)
-        {
-            DetailBill d = detailBill.SearchDetail(txtBillCode.Text, comProductName.SelectedValue.ToString());
-            if (d != null)
-            {
-                if (detailBill.Update(txtBillCode.Text, comProductName.SelectedValue.ToString(), txtQuantity.Text, d.Quantity, true))
-                {
-                    MessageBox.Show("Cập nhật sản phẩm thành công", "Thông báo", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật sản phẩm thất bại", "Thông báo", MessageBoxButtons.OK);
-                }
-            }
-            else
-            {
-                if (detailBill.Insert(txtBillCode.Text, comProductName.SelectedValue.ToString(), txtQuantity.Text))
-                {
-                    MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Thêm sản phẩm thất bại", "Thông báo", MessageBoxButtons.OK);
-                }
-            }
-            dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DetailBill d = detailBill.SearchDetail(txtBillCode.Text, comProductName.SelectedValue.ToString());
-            if (d != null)
-            {
-                int newQuantity = Convert.ToInt32(txtQuantity.Text);
-                if (newQuantity != d.Quantity)
-                {
-                    if (newQuantity > d.Quantity)
-                    {
-                        MessageBox.Show("Quá số lượng sản phẩm", "Thông báo", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        if (detailBill.Update(txtBillCode.Text, comProductName.SelectedValue.ToString(), txtQuantity.Text, d.Quantity, false))
-                        {
-                            MessageBox.Show("Cập nhật sản phẩm thành công", "Thông báo", MessageBoxButtons.OK);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cập nhật sản phẩm thất bại", "Thông báo", MessageBoxButtons.OK);
-                        }
-                    }
-                }
-                else
-                {
-                    if (detailBill.Delete(txtBillCode.Text, comProductName.SelectedValue.ToString()))
-                    {
-                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
-            //DetailBill detail = detailBill.SearchDetail(txtBillCode.Text, comProductName.SelectedValue.ToString());
-            //if (detail != null)
-            //{
-            //    if (detailBill.Delete(txtBillCode.Text, comProductName.SelectedValue.ToString()))
-            //    {
-            //        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        var list = detailBill.AdvancedSearch(txtBillCode.Text);
-            //        dataGridBill.DataSource = list;
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Sản phẩm không tồn tại trong hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
         }
 
         private void dataGridBill_DataSourceChanged(object sender, EventArgs e)
@@ -232,7 +121,7 @@ namespace Lab2_Shopping
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Bạn có trở về trang quản lý hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
                 Close();
@@ -241,16 +130,50 @@ namespace Lab2_Shopping
 
         private void BillManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //Application.OpenForms[1].Show();
+            Application.OpenForms[2].Show();
         }
 
         private void dataGridBill_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewCellCollection cell = dataGridBill.Rows[e.RowIndex].Cells;
-                string address = cell["ProductName"].Value.ToString();
+                DisplayDataToField(e.RowIndex);
             }
+        }
+
+        private void DisplayDataToField(int index = 0)
+        {
+            DataGridViewCellCollection cell = dataGridBill.Rows[index].Cells;
+            string code = cell["Code"].Value.ToString();
+            string quantity = cell["Quantity"].Value.ToString();
+            string amount = cell["Amount"].Value.ToString();
+            bool status = Convert.ToBoolean(cell["Status"].Value);
+            comProductName.SelectedValue = code;
+            txtQuantity.Text = quantity;
+            txtAmount.Text = amount;
+            radPaidAProduct.Checked = status;
+            btnPayProduct.Enabled = !status;
+            SelectRow(code);
+        }
+
+        private void SelectRow(string code)
+        {
+            int index = 0;
+            for (int i = 0; i < dataGridBill.Rows.Count; i++)
+            {
+                DataGridViewCellCollection cell = dataGridBill.Rows[i].Cells;
+                string Code = cell["Code"].Value.ToString();
+                if (code.Trim().Equals(Code.Trim()))
+                {
+                    index = i;
+                    break;
+                }
+            }
+            for (int i = 0; i < dataGridBill.SelectedRows.Count; i++)
+            {
+                dataGridBill.SelectedRows[i].Selected = false;
+            }
+            dataGridBill.Rows[index].Selected = true;
         }
     }
 }

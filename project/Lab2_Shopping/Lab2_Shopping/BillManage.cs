@@ -117,11 +117,17 @@ namespace Lab2_Shopping
 
         private void txtBillCode_TextChanged(object sender, EventArgs e)
         {
+            GetDataOfDetailBill();
+        }
+
+        private void GetDataOfDetailBill()
+        {
             if (txtBillCode.Text == "")
             {
                 SetEnableButton(false, false, false, false);
                 dataGridBill.DataSource = "";
                 txtDateBuy.Text = "";
+                lblBillStatus.Text = "";
             }
             else
             {
@@ -130,12 +136,13 @@ namespace Lab2_Shopping
                 {
                     SetEnableButton(true, false, false, false);
                     dataGridBill.DataSource = "";
+                    lblBillStatus.Text = "";
                     txtDateBuy.Text = DateTime.Now.ToShortDateString();
                 }
                 else
                 {
                     int paid = detailBill.CountPaid(txtBillCode.Text);
-                    int bought = detailBill.CountPaid(txtBillCode.Text, 0);
+                    int bought = detailBill.CountPaid(txtBillCode.Text, false);
                     if (paid > 0)
                     {
                         if (paid == bought)
@@ -151,10 +158,12 @@ namespace Lab2_Shopping
                     }
                     else if (bought > 0)
                     {
+                        lblBillStatus.Text = "Hóa đơn chưa thanh toán";
                         SetEnableButton(false, true, true, true);
                     }
                     else
                     {
+                        lblBillStatus.Text = "Hóa đơn chưa có sản phẩm";
                         SetEnableButton(false, true, true, false);
                     }
                     dataGridBill.DataSource = detailBill.AdvancedSearch(txtBillCode.Text);
@@ -264,7 +273,7 @@ namespace Lab2_Shopping
 
         private void BillManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Application.OpenForms[1].Show();
+            Application.OpenForms[1].Show();
         }
 
         private void dataGridBill_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -274,6 +283,20 @@ namespace Lab2_Shopping
                 DataGridViewCellCollection cell = dataGridBill.Rows[e.RowIndex].Cells;
                 string address = cell["ProductName"].Value.ToString();
             }
+        }
+
+        private void btnPayBill_Click(object sender, EventArgs e)
+        {
+            PayManage pay = new PayManage();
+            pay.getTxtCustomerCode().Text = txtCustomerCode.Text;
+            pay.getTxtBillCode().Text = txtBillCode.Text;
+            pay.Show();
+            Hide();
+        }
+
+        private void btnPayBill_VisibleChanged(object sender, EventArgs e)
+        {
+            GetDataOfDetailBill();
         }
     }
 }

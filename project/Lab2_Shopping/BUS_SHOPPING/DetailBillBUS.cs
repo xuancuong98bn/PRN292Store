@@ -33,12 +33,12 @@ namespace BUS_SHOPPING
             return list;
         }
 
-        public DataTable AdvancedSearch(string text)
+        public DataTable AdvancedSearch(string text, bool mode = true, int status = 0)
         {
             try
             {
                 int code = Convert.ToInt32(text);
-                return DetailBillDAL.AdvancedSearch(code);
+                return DetailBillDAL.AdvancedSearch(code, mode, status);
             }
             catch (Exception ex)
             {
@@ -46,12 +46,12 @@ namespace BUS_SHOPPING
             }
         }
 
-        public double Total(string billCode)
+        public double Total(string billCode, bool mode = true, int status = 0)
         {
             try
             {
                 int code = Convert.ToInt32(billCode);
-                return DetailBillDAL.Total(code);
+                return DetailBillDAL.Total(code, mode, status);
             }
             catch (Exception ex)
             {
@@ -59,12 +59,12 @@ namespace BUS_SHOPPING
             }
         }
 
-        public int CountPaid(string billCode, int status = 1)
+        public int CountPaid(string billCode, bool mode = true, int status = 1)
         {
             try
             {
                 int code = Convert.ToInt32(billCode);
-                return DetailBillDAL.CountPaid(code, status);
+                return DetailBillDAL.CountPaid(code, mode, status);
             }
             catch (Exception ex)
             {
@@ -94,6 +94,20 @@ namespace BUS_SHOPPING
             {
                 BillCode = Convert.ToInt32(billCode);
                 return DetailBillDAL.Pay(BillCode, productCode);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool PayAll(string billCode)
+        {
+            int BillCode = 0;
+            try
+            {
+                BillCode = Convert.ToInt32(billCode);
+                return DetailBillDAL.PayAll(BillCode);
             }
             catch (Exception e)
             {

@@ -50,7 +50,7 @@ namespace DAL_SHOPPING
         {
             DetailBill c = null;
             //code = code.Trim();
-            DataTable dt = DataAccess.ExecuteQuery("SELECT * FROM " + TableName + " WHERE BillCode = " + billCode + " AND ProductCode = '"+ productCode + "'");
+            DataTable dt = DataAccess.ExecuteQuery("SELECT * FROM " + TableName + " WHERE BillCode = " + billCode + " AND ProductCode = '" + productCode + "'");
             if (dt.Rows.Count != 0)
             {
                 object[] row = dt.Rows[0].ItemArray;
@@ -61,51 +61,57 @@ namespace DAL_SHOPPING
             return c;
         }
 
-        public static DataTable AdvancedSearch(int billCode, int status = 0)
+        public static DataTable AdvancedSearch(int billCode, bool mode = true, int status = 0)
         {
-            DataTable dt = DataAccess.ExecuteQuery
-                (@"SELECT        tblCustomer.Name, tblProduct.Name AS ProductName, tblProduct.Unit, tblProduct.Price, tblDetailBill.Quantity, tblProduct.Price *tblDetailBill.Quantity Amount, tblBill.DateBuy 
+            string sql =
+                @"SELECT        tblCustomer.Name, tblProduct.Name AS ProductName, tblProduct.Code, tblProduct.Unit, tblProduct.Price, tblDetailBill.Quantity, tblProduct.Price *tblDetailBill.Quantity Amount, tblBill.DateBuy, tblDetailBill.Status
                     FROM            tblBill INNER JOIN
                                                 tblCustomer ON tblBill.CustomerCode = tblCustomer.Code INNER JOIN
                                                 tblDetailBill ON tblBill.Code = tblDetailBill.BillCode INNER JOIN
                                                 tblProduct ON tblDetailBill.ProductCode = tblProduct.Code
-                    WHERE tblBill.Code = " + billCode + " AND tblDetailBill.Status = " + status);
+                    WHERE tblBill.Code = " + billCode;
+            if (mode) sql += " AND tblDetailBill.Status = " + status;
+            DataTable dt = DataAccess.ExecuteQuery(sql);
             return dt;
         }
 
-        public static double Total(int billCode, int status = 0)
+        public static double Total(int billCode, bool mode = true, int status = 0)
         {
             double total = 0;
-            total = (double)DataAccess.ExecuteScalarQuery
-                (@"SELECT        SUM(tblProduct.Price *tblDetailBill.Quantity)
+            string sql =
+                @"SELECT        SUM(tblProduct.Price *tblDetailBill.Quantity)
                     FROM            tblBill INNER JOIN
                                                 tblCustomer ON tblBill.CustomerCode = tblCustomer.Code INNER JOIN
                                                 tblDetailBill ON tblBill.Code = tblDetailBill.BillCode INNER JOIN
                                                 tblProduct ON tblDetailBill.ProductCode = tblProduct.Code
-                    WHERE tblBill.Code = " + billCode + " AND tblDetailBill.Status = " + status);
+                    WHERE tblBill.Code = " + billCode;
+            if (mode) sql += " AND tblDetailBill.Status = " + status;
+            total = (double)DataAccess.ExecuteScalarQuery(sql);
             return total;
         }
 
-        public static int CountPaid(int billCode, int status = 1)
+        public static int CountPaid(int billCode, bool mode = true, int status = 1)
         {
             int count = 0;
-            count = (int)DataAccess.ExecuteScalarQuery
-                (@"SELECT        COUNT(tblDetailBill.Status)
+            string sql =
+                @"SELECT        COUNT(tblDetailBill.Status)
                     FROM            tblBill INNER JOIN
                                                 tblCustomer ON tblBill.CustomerCode = tblCustomer.Code INNER JOIN
                                                 tblDetailBill ON tblBill.Code = tblDetailBill.BillCode INNER JOIN
                                                 tblProduct ON tblDetailBill.ProductCode = tblProduct.Code
-                    WHERE tblBill.Code = " + billCode + " AND tblDetailBill.Status = " + status);
+                    WHERE tblBill.Code = " + billCode;
+            if (mode) sql += " AND tblDetailBill.Status = " + status;
+            count = (int)DataAccess.ExecuteScalarQuery(sql);
             return count;
         }
 
         public static int Size()
         {
-            return (int) DataAccess.ExecuteScalarQuery("SELECT COUNT(*) FROM tblDetailBill");
+            return (int)DataAccess.ExecuteScalarQuery("SELECT COUNT(*) FROM tblDetailBill");
         }
         public static bool Insert(DetailBill c)
         {
-            string sql = @"INSERT INTO tblDetailBill VALUES(" + c.BillCode + ", '" + c.ProductCode + "', " + c.Quantity + ","+ 0 +")";
+            string sql = @"INSERT INTO tblDetailBill VALUES(" + c.BillCode + ", '" + c.ProductCode + "', " + c.Quantity + "," + 0 + ")";
             return DataAccess.ExecuteNonQuery(sql);
         }
 
@@ -118,6 +124,12 @@ namespace DAL_SHOPPING
         public static bool Pay(int billCode, string productCode)
         {
             string sql = @"UPDATE tblDetailBill SET Status = " + 1 + " WHERE BillCode = " + billCode + " AND ProductCode = '" + productCode + "'";
+            return DataAccess.ExecuteNonQuery(sql);
+        }
+
+        public static bool PayAll(int billCode)
+        {
+            string sql = @"UPDATE tblDetailBill SET Status = " + 1 + " WHERE BillCode = " + billCode;
             return DataAccess.ExecuteNonQuery(sql);
         }
 

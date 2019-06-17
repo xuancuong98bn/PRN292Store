@@ -397,6 +397,8 @@
             this.btnPayBill.TabIndex = 15;
             this.btnPayBill.Text = "Thanh toán";
             this.btnPayBill.UseVisualStyleBackColor = false;
+            this.btnPayBill.VisibleChanged += new System.EventHandler(this.btnPayBill_VisibleChanged);
+            this.btnPayBill.Click += new System.EventHandler(this.btnPayBill_Click);
             // 
             // lblBillStatus
             // 

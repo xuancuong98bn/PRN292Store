@@ -35,6 +35,7 @@
             this.btnBuy = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.groupBoxInfor = new System.Windows.Forms.GroupBox();
+            this.lblBillStatus = new System.Windows.Forms.Label();
             this.txtDateBuy = new System.Windows.Forms.TextBox();
             this.txtBillCode = new System.Windows.Forms.TextBox();
             this.lblBillDate = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.lblCode = new System.Windows.Forms.Label();
             this.dataGridBill = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPayBill = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblListView = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.comProductName = new System.Windows.Forms.ComboBox();
-            this.btnPayBill = new System.Windows.Forms.Button();
-            this.lblBillStatus = new System.Windows.Forms.Label();
             this.groupBoxInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBill)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -167,6 +167,13 @@
             this.groupBoxInfor.TabStop = false;
             this.groupBoxInfor.Text = "Thông tin khách hàng";
             // 
+            // lblBillStatus
+            // 
+            this.lblBillStatus.Location = new System.Drawing.Point(466, 132);
+            this.lblBillStatus.Name = "lblBillStatus";
+            this.lblBillStatus.Size = new System.Drawing.Size(235, 17);
+            this.lblBillStatus.TabIndex = 11;
+            // 
             // txtDateBuy
             // 
             this.txtDateBuy.Location = new System.Drawing.Point(564, 67);
@@ -269,6 +276,7 @@
             this.dataGridBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBill.Location = new System.Drawing.Point(387, 47);
             this.dataGridBill.Name = "dataGridBill";
+            this.dataGridBill.ReadOnly = true;
             this.dataGridBill.Size = new System.Drawing.Size(324, 143);
             this.dataGridBill.TabIndex = 11;
             this.dataGridBill.DataSourceChanged += new System.EventHandler(this.dataGridBill_DataSourceChanged);
@@ -298,6 +306,21 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin mua hàng";
+            // 
+            // btnPayBill
+            // 
+            this.btnPayBill.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPayBill.Enabled = false;
+            this.btnPayBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayBill.ForeColor = System.Drawing.Color.Red;
+            this.btnPayBill.Location = new System.Drawing.Point(115, 202);
+            this.btnPayBill.Name = "btnPayBill";
+            this.btnPayBill.Size = new System.Drawing.Size(257, 25);
+            this.btnPayBill.TabIndex = 15;
+            this.btnPayBill.Text = "Thanh toán";
+            this.btnPayBill.UseVisualStyleBackColor = false;
+            this.btnPayBill.VisibleChanged += new System.EventHandler(this.btnPayBill_VisibleChanged);
+            this.btnPayBill.Click += new System.EventHandler(this.btnPayBill_Click);
             // 
             // txtTotal
             // 
@@ -384,28 +407,6 @@
             this.comProductName.Size = new System.Drawing.Size(157, 23);
             this.comProductName.TabIndex = 6;
             this.comProductName.SelectedIndexChanged += new System.EventHandler(this.comProductName_SelectedIndexChanged);
-            // 
-            // btnPayBill
-            // 
-            this.btnPayBill.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPayBill.Enabled = false;
-            this.btnPayBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPayBill.ForeColor = System.Drawing.Color.Red;
-            this.btnPayBill.Location = new System.Drawing.Point(115, 202);
-            this.btnPayBill.Name = "btnPayBill";
-            this.btnPayBill.Size = new System.Drawing.Size(257, 25);
-            this.btnPayBill.TabIndex = 15;
-            this.btnPayBill.Text = "Thanh toán";
-            this.btnPayBill.UseVisualStyleBackColor = false;
-            this.btnPayBill.VisibleChanged += new System.EventHandler(this.btnPayBill_VisibleChanged);
-            this.btnPayBill.Click += new System.EventHandler(this.btnPayBill_Click);
-            // 
-            // lblBillStatus
-            // 
-            this.lblBillStatus.Location = new System.Drawing.Point(466, 132);
-            this.lblBillStatus.Name = "lblBillStatus";
-            this.lblBillStatus.Size = new System.Drawing.Size(235, 17);
-            this.lblBillStatus.TabIndex = 11;
             // 
             // BillManage
             // 

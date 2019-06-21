@@ -157,6 +157,7 @@
             // radPaidAProduct
             // 
             this.radPaidAProduct.AutoSize = true;
+            this.radPaidAProduct.Enabled = false;
             this.radPaidAProduct.Location = new System.Drawing.Point(1, 8);
             this.radPaidAProduct.Name = "radPaidAProduct";
             this.radPaidAProduct.Size = new System.Drawing.Size(106, 17);
@@ -228,6 +229,7 @@
             // 
             this.txtQuantity.Location = new System.Drawing.Point(187, 257);
             this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.ReadOnly = true;
             this.txtQuantity.Size = new System.Drawing.Size(128, 20);
             this.txtQuantity.TabIndex = 8;
             this.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -351,6 +353,7 @@
             this.dataGridBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBill.Location = new System.Drawing.Point(18, 37);
             this.dataGridBill.Name = "dataGridBill";
+            this.dataGridBill.ReadOnly = true;
             this.dataGridBill.Size = new System.Drawing.Size(358, 308);
             this.dataGridBill.TabIndex = 11;
             this.dataGridBill.DataSourceChanged += new System.EventHandler(this.dataGridBill_DataSourceChanged);
@@ -376,6 +379,7 @@
             // 
             this.txtTotal.Location = new System.Drawing.Point(204, 356);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(172, 21);
             this.txtTotal.TabIndex = 14;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

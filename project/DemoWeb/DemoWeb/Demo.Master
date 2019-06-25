@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Demo.master.cs" Inherits="DemoWeb.Demo" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+
+        .auto-style4 {
+            width: 768px;
+        }
+
+        .auto-style5 {
+            margin-bottom: 0px;
+        }
+
+        .auto-style6 {
+            height: 23px;
+        }
+    </style>
+</head>
+<body style="width: 100%;">
+    <div style="width: 100%; padding-bottom:20px">
+        <asp:Image ID="Image1" runat="server" CssClass="auto-style5" Height="400px" ImageUrl="~/image/Beach-Banner.jpg" Width="100%" />
+    </div>
+    <div style="display:flex; margin:0 50px">
+        <div style="width: 20%">
+            <table class="auto-style1">
+                <asp:ContentPlaceHolder ID="RenderNavbar" runat="server">
+                </asp:ContentPlaceHolder>
+            </table>
+        </div>
+        <div style="width: 60%">
+            <asp:ContentPlaceHolder ID="RenderBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div style="width: 20%">
+            <asp:ContentPlaceHolder ID="Advertise" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small pt-4" style="color: white">
+
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left" style="background-color: #2196f3; padding-top: 20px">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+
+                    <!-- Content -->
+                    <h5 class="text-uppercase">Footer Content</h5>
+                    <p>Here you can use rows and columns to organize your footer content.</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+                    <h5 class="text-uppercase">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" style="text-decoration: none; color: white">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!" style="text-decoration: none; color: white">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!" style="text-decoration: none; color: white">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!" style="text-decoration: none; color: white">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+                    <h5 class="text-uppercase">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" style="text-decoration: none; color: white">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!" style="text-decoration: none; color: white">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!" style="text-decoration: none; color: white">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!" style="text-decoration: none; color: white">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="background-color: #1a78c2">
+            © 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/" style="text-decoration: none; color: white">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

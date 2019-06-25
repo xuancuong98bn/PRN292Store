@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Demo.Master" AutoEventWireup="true" CodeBehind="AfterLogin.master.cs" Inherits="DemoWeb.AfterLogin" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="RenderNavbar" runat="server">
+    <tr>
+        <td class="auto-style6">
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Home.aspx">Home</asp:HyperLink>
+        </td>
+        <td class="auto-style4" rowspan="4"></td>
+    </tr>
+    <tr>
+        <td class="auto-style8">
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="About.aspx">About</asp:HyperLink>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:HyperLink ID="HyperLink3" runat="server">Excercise</asp:HyperLink>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style6">
+            <asp:HyperLink ID="HyperLink4" runat="server">Help</asp:HyperLink>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style7">
+            <asp:HyperLink ID="HyperLink5" runat="server">Contact</asp:HyperLink>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">Footer</td>
+    </tr>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="RenderBody" runat="server">
+    <asp:ContentPlaceHolder ID="RenderBody" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="Advertise" runat="server">
+    Quảng cáo
+</asp:Content>

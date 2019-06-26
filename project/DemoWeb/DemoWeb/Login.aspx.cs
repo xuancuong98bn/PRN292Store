@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Model_PROJECT;
+using Model_PROJECT.DAO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,9 +19,10 @@ namespace DemoWeb
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if ("admin".Equals(txtUsername.Text) && "admin".Equals(txtPassword.Text))
+            User user = UserDAO.LoginVal(txtUsername.Text, txtPassword.Text);
+            if ( user != null)
             {
-                Session.Add("account", "admin");
+                Session.Add("account", user.Username);
                 Response.Redirect("Home.aspx");
             }
         }

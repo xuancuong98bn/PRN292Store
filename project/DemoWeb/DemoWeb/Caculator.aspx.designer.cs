@@ -10,7 +10,7 @@
 namespace DemoWeb {
     
     
-    public partial class Example {
+    public partial class Calculator {
         
         /// <summary>
         /// form1 control.

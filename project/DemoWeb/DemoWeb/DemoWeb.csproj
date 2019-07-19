@@ -70,12 +70,26 @@
     <Content Include="About.aspx" />
     <Content Include="bootstrap\bootstrap.css" />
     <Content Include="Caculator.aspx" />
+    <Content Include="demoService.asmx" />
     <Content Include="Home.aspx" />
+    <Content Include="image\1.png" />
+    <Content Include="image\2.png" />
+    <Content Include="image\3.png" />
+    <Content Include="image\4.png" />
     <Content Include="image\Beach-Banner.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="product\Create.aspx" />
+    <Content Include="product\ProductDetail.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\localhost\demoService.disco" />
+    <Content Include="product\Update.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="product\Products.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -85,11 +99,15 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AfterLogin.master.cs">
+    <Compile Include="demoService.asmx.cs">
+      <DependentUpon>demoService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="master\AfterLogin.master.cs">
       <DependentUpon>AfterLogin.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AfterLogin.master.designer.cs">
+    <Compile Include="master\AfterLogin.master.designer.cs">
       <DependentUpon>AfterLogin.master</DependentUpon>
     </Compile>
     <Compile Include="Caculator.aspx.cs">
@@ -99,11 +117,11 @@
     <Compile Include="Caculator.aspx.designer.cs">
       <DependentUpon>Caculator.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Demo.Master.cs">
+    <Compile Include="master\Demo.Master.cs">
       <DependentUpon>Demo.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Demo.Master.designer.cs">
+    <Compile Include="master\Demo.Master.designer.cs">
       <DependentUpon>Demo.Master</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
@@ -120,14 +138,57 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="product\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="product\ProductDetail.aspx.cs">
+      <DependentUpon>ProductDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product\ProductDetail.aspx.designer.cs">
+      <DependentUpon>ProductDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="product\Update.aspx.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product\Update.aspx.designer.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="product\Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product\Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\localhost\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Demo.Master" />
-    <Content Include="AfterLogin.master" />
+    <Content Include="master\Demo.Master" />
+    <Content Include="master\AfterLogin.master" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Web References\localhost\demoService.wsdl" />
+    <Content Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,10 +197,37 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BUS_PROJECT\BUS_PROJECT.csproj">
+      <Project>{434af791-e531-44a4-a50a-87dda4e150c8}</Project>
+      <Name>BUS_PROJECT</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model_PROJECT\Model_PROJECT.csproj">
       <Project>{28872cb4-5cde-4d1c-be96-987ab16cd86e}</Project>
       <Name>Model_PROJECT</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SERVICE\SERVICE.csproj">
+      <Project>{31cdc31f-58ef-4b77-b2ff-3986cfd48b24}</Project>
+      <Name>SERVICE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:59393/demoService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost\</RelPath>
+      <UpdateFromURL>http://localhost:59393/demoService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DemoWeb_localhost_demoService</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

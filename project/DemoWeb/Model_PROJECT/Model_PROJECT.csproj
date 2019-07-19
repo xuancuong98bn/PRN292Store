@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataAccess.cs" />
+    <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

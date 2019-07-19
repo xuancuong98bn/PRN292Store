@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AfterLogin.master" AutoEventWireup="true" CodeBehind="Caculator.aspx.cs" Inherits="DemoWeb.Calculator" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/AfterLogin.master" AutoEventWireup="true" CodeBehind="Caculator.aspx.cs" Inherits="DemoWeb.Calculator" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="RenderBody" runat="server">
     <div style="margin: 0 30px; padding: 30px; box-shadow: 3px 3px 3px gray; border: solid 1px gray; border-radius: 10px">

@@ -11,7 +11,7 @@ namespace Model_PROJECT
     public static class DataAccess
     {
         public static string connectionString;
-        public static string dbName = "PRN292_Traveling";
+        public static string dbName = "PRN292_Shopping";
         static SqlConnection conn;
         //static SqlDataAdapter da;
         static SqlCommand cmd;

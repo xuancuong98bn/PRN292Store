@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Demo.Master" AutoEventWireup="true" CodeBehind="AfterLogin.master.cs" Inherits="DemoWeb.AfterLogin" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/master/Demo.Master" AutoEventWireup="true" CodeBehind="AfterLogin.master.cs" Inherits="DemoWeb.AfterLogin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -6,18 +6,18 @@
     <table class="auto-style1">
         <tr>
             <td class="auto-style6">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Home.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="../Home.aspx">Home</asp:HyperLink>
             </td>
             <td class="auto-style4" rowspan="4"></td>
         </tr>
         <tr>
             <td class="auto-style8">
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="About.aspx">About</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="../About.aspx">About</asp:HyperLink>
             </td>
         </tr>
         <tr>
             <td>
-                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="Caculator.aspx">Excercise</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="../Caculator.aspx">Excercise</asp:HyperLink>
             </td>
         </tr>
         <tr>
